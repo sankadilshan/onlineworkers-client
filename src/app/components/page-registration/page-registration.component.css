@@ -1,0 +1,22 @@
+.back{
+    background-color:#ececec ;
+}
+.back1{
+    background-color:#00fffc ;
+    width:979px;
+    height: 285px;
+    position: absolute;
+    top:62px;
+    left: 77px;
+    padding:77px
+}
+input {
+    width:400px;
+}
+.mat-card{
+    background-image: url(src\assets\img\b41.jfif);
+
+}
+button{
+    margin-left: 10px;
+}

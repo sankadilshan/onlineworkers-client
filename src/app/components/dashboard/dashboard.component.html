@@ -1,0 +1,54 @@
+<div id="background">
+    <section>
+        <!-- <ng-slideshow [options]="options" [images]="images"></ng-slideshow> -->
+    </section>
+        <mat-card class="dashboard-card">
+            <mat-card-header>
+                <div mat-card-avatar class="dashboard-avatar"></div>
+                <mat-card-title>find your worker easy way...</mat-card-title>
+                <mat-card-subtitle>& give your service...</mat-card-subtitle>
+                </mat-card-header> 
+                <img mat-card-image src="../assets/img/dashboard.jpg" alt="dashboard-image">
+                <mat-card-content>
+                    <p>
+                        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                        xxxxxxxxxxxxxxxxxxx
+
+                    </p>
+                </mat-card-content>
+                <mat-card-actions align="end">
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+                </mat-card-actions>
+        </mat-card>
+        <mat-card id="dashboard-foot">
+            <ul>
+                <li>
+            <mat-card-header>
+              <div mat-card-avatar class="dashboard-avatar"></div>
+              <mat-card-title><b>followers</b></mat-card-title>
+              <mat-card-subtitle>{{fcount}}</mat-card-subtitle>
+            </mat-card-header>
+                </li>
+                <li>
+            <mat-card-header>
+              <div mat-card-avatar class="dashboard-avatar"></div>
+              <mat-card-title><b>likes</b></mat-card-title>
+              <mat-card-subtitle>{{lcount}}</mat-card-subtitle>
+              </mat-card-header>
+                </li>
+                <li>
+              <mat-card-header>
+              <div mat-card-avatar class="dashboard-avatar"></div>
+              <mat-card-title><b>members</b></mat-card-title>
+              <mat-card-subtitle>{{mcount}}</mat-card-subtitle>
+              </mat-card-header>
+              </li>
+              </ul>
+        </mat-card>
+        <mat-card id="dashboard-button">
+            <button (click)="directToLogin()" color="accent" mat-raised-button><b>LOGIN</b></button>
+        </mat-card>
+</div>

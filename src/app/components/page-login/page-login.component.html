@@ -1,0 +1,60 @@
+<div class="background">
+    <!-- <mat-video [autoplay]="true" [preload]="true" [fullscreen]="true" color="accent" spinner="spin">
+       <source matVideoSource src="../assets/video/back-video.mp4" type="video/mp4">
+    </mat-video> -->
+    <video autoplay mute loop src="../assets/video/back-video.mp4" id="myvideo"></video>
+    <div id="form">
+        <div class="form-image">
+       <mat-card class="login-card">
+           <mat-card-header >
+               <mat-card-title>Sign in</mat-card-title>
+               <mat-card-subtitle>If you haven't account yet sign up</mat-card-subtitle>
+           </mat-card-header>
+         <mat-card-content>
+         <img src="../assets/img/avator.jpeg" alt="login view image" class="mat-login-img">
+         </mat-card-content>
+       </mat-card>
+        </div>
+        <div class="form-contain">
+            <mat-card class="l1">
+                <mat-card-content>
+                <div class="container">
+                    <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onLoginForm()" novalidate>
+                          <div>
+                        <mat-form-field appearance="legacy">
+                        <mat-label>Username</mat-label>
+                        <input id="name"
+                           matInput
+                           formControlName="username"
+                           [(ngModel)]="user.username"
+                            placeholder="username">
+                    </mat-form-field>
+                          </div>
+                          <div>
+                    <mat-form-field appearence="legacy">
+                        <mat-label>Password</mat-label>
+                        <input id="password"
+                         matInput 
+                         formControlName="password"
+                         [(ngModel)]="user.password"
+                        [type]="hide ? 'password':'text'"
+                        placeholder="password">
+                                <mat-icon matSuffix (click)="hide = !hide" [attr.aria-label]="'hide password'" [attr.aria-pressed]="hide" >{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                     </mat-form-field>
+                          </div>
+                    <div>
+                    <button mat-button type="submit" mat-raised-button color="accent" [disabled]="!loginForm.valid">Sign in</button>
+                    <button mat-button mat-raised-button color="accent" (click)="register()"> Sign up</button>
+                    </div>    
+                </form>
+                </div>
+                </mat-card-content>
+             </mat-card>   
+        </div>
+    </div>
+    <div>
+        <app-page-login-middle></app-page-login-middle>
+
+    </div>
+</div>
+

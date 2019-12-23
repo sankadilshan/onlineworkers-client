@@ -1,0 +1,73 @@
+#background{
+    background-image: url(src\assets\img\b41.jfif); 
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 625px;
+    color: bisque;
+}
+.dashboard-card{
+   max-width: 370px;
+   margin-left: 5px;
+   color: white;
+   background-color:transparent;
+   position: absolute;
+   left:100px;
+   top:125px;
+   box-shadow: #30825a 4px 9px 40px -11px; 
+}
+mat-card-header {
+    margin-bottom: 10px;
+}
+.dashboard-avatar{
+ background-image: url(src\assets\img\avator.jpeg);
+ background-size: cover;
+}
+.mat-card-image{
+    margin:0 -16px 11px 40px;
+}
+mat-card-header,img:hover {
+    animation: shake 0,5s;
+    animation-iteration-count: infinite;
+}
+@keyframes shake{
+    0% { transform: translate(1px,1px) rotate(0deg);}
+    10% {transform: translate(-1px,-2px) rotate(-1deg);}
+    20% {transform: translate(-3px,0px) rotate(1deg);}
+    30% {transform: translate(3px,2px) rotate(0deg);}
+    40% {transform: translate(1px,-1px) rotate(1deg);}
+    50% {transform: translate(-1px,2px) rotate(-1deg);}
+    60% {transform: translate(3px,-1px) rotate(0deg);}
+    70% {transform: translate(3px,1px) rotate(-1deg);}
+    80% {transform: translate(-1px,-1px) rotate(1deg);}
+    90% {transform: translate(1px,2px) rotate(0deg);}
+    100% {transform: translate(1px,-2px) rotate(-1deg);}
+}
+ul{
+    list-style-type: none;
+}
+li{
+    float: left;
+    margin-left: 10px;
+}
+#dashboard-foot{
+    max-width: 800px;
+    position: absolute;
+    left:606px;
+    top:478px;
+   /* background-image: url(src\assets\img\dashboard.jpg);*/
+   background-color: transparent;
+   color: black;
+   text-shadow:#30825a 4px 9px 40px -11px;
+   font-family:italian;
+   box-shadow: #30825a 4px 9px 40px -11px; 
+
+}
+#dashboard-button{
+    max-width: 500px;
+    position:absolute;
+    left:715px;
+    top:280px;
+    background-color: transparent;
+    
+}

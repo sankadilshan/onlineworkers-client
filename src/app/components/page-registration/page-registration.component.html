@@ -1,0 +1,67 @@
+<div class="back">
+    <div class="back1">
+        <mat-card>
+                <mat-card-header >
+                        <mat-card-title>Sign up</mat-card-title>
+                        <mat-card-subtitle>If you haven't account yet sign up</mat-card-subtitle>
+                    </mat-card-header>
+        </mat-card>
+        <mat-card>
+            <mat-card-content>
+                <div class="f-container">
+                    <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && onSubmitRegister()" novalidate>
+                        <div>
+                            <mat-form-field class="mat-headline" appearance="legacy">
+                               <mat-label>Username</mat-label>
+                               <input id="name"
+                               matInput
+                               formControlName="username"
+                               [(ngModel)]="user.username"
+                                placeholder="username">
+                            </mat-form-field>
+                        </div>
+                        <div>
+                        <mat-form-field>
+                            <input id="password"
+                             matInput 
+                             formControlName="password"
+                             [(ngModel)]="user.password"
+                            [type]="hide ? 'password':'text'"
+                            placeholder="password">
+                                    <mat-icon matSuffix  (click)="hide = !hide" [attr.aria-label]="'hide password'" [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                    <mat-hint>(password with length between 6-16)</mat-hint>
+                                </mat-form-field>
+                               </div>
+                              <div>
+                                <mat-form-field appearance="legacy">
+                                   <mat-label>Email</mat-label>
+                                   <input id="email"
+                                   matInput
+                                   formControlName="email"
+                                   [(ngModel)]="user.email"
+                                    placeholder="email">
+                                </mat-form-field>
+                            </div>
+                            <div>
+                                <mat-form-field appearance="legacy">
+                                   <mat-label>Contact No.</mat-label>
+                                   <input id="contact"
+                                   matInput
+                                   formControlName="contact"
+                                   [(ngModel)]="user.contact"
+                                    placeholder="contact">
+                                    <mat-hint>(valid contact 071-0/077-6/072)</mat-hint>
+                                </mat-form-field>
+                            </div>
+                            <br>
+                            <div>
+                            <button mat-button type="submit"  mat-raised-button color="accent" [disabled]="!registerForm.valid" >Sign up</button>
+                            <button mat-button mat-raised-button color="accent" (click)="login()">Sign in</button>
+                            </div>
+                    </form>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>  
+   
+</div>

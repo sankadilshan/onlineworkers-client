@@ -1,0 +1,113 @@
+
+mat-toolbar{
+    background-color:#ececec;
+    color:black;
+    border:#9eccb4 solid 2px;
+    box-shadow: 12px 5px 18px 3px;
+    margin-top:0.5em;
+   
+}
+.navbar{
+    justify-content: space-between;
+}
+#onlineWork:hover {
+    cursor: pointer;
+    color: indigo;
+    transform: scale(1.5);  
+}
+.type{
+    margin-left: -11em;
+}   
+span{
+    padding-left:1rem;
+}
+::ng-deep .mat-menu-panel{
+    max-width:none !important;
+    width:1338px; 
+    height: 285px;
+    background:rgba(255,255,255,.7);
+    margin-top: 1em;
+    position: absolute;
+    left: -313px;
+}
+::ng-deep .categeory{
+    position:absolute;
+    left:-203px ;
+}
+button.mat-menu-item{
+   width:50%;
+  
+}
+.mat-menu-item{
+    color:black;
+    margin: 0.5em;
+    width:100px;
+    height: 100px;
+    display: -webkit-inline-flex;
+
+}
+.mat-menu-item:hover{
+ color: white; 
+} 
+.categeory-name{
+    margin-left: 2em;
+    width: 100px;
+    height: 50px;
+    background-color: yellow;
+    
+}
+.dropdown-avatar{
+    background-image: url(src\assets\img\avator.jpeg);
+    background-size: cover;
+}
+img{
+    width:60px;
+    height: 60px;
+    border-radius: 100%;
+    filter: gray;
+    -webkit-filter: grayscale(1);
+    margin-right: 21px;
+    /* -webkit-transition: all .8s ease-in-out; */
+}
+img:hover{
+    filter: none;
+    -webkit-filter: grayscale(0);
+    transform: scale(1.3);
+    /* -webkit-transform: scale(1.01); */
+    
+}
+.categeoryitems, .menuitems{
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+    
+}
+.menuitems .mat-menu-item{
+  width: 149px;
+  height: 40px;
+  margin-right: 1em;
+  align-items: center;
+  border-radius: 5px;
+  background-color: rgba(36, 97, 51, 0.77);
+ 
+}
+#d:hover{
+    transform: scale(1.2);
+}
+mai-icon{
+    color: black;
+}
+mat-icon:hover{
+    color: white;
+    transform: scale(1.2);
+}
+.categeoryitems .mat-menu-item{
+    width:31em;
+    height: 9em;
+    margin-right: -4.5px;
+    margin-bottom: -4.5px;
+    align-items: center;
+    border-radius: 5px;
+    background-color: rgba(36, 97, 51, 0.77);
+ 
+}

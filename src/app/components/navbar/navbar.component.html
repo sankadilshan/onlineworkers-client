@@ -1,0 +1,36 @@
+<mat-toolbar class="navbar">
+   <div id="onlineWork"><span><b><i>Online Workers</i></b></span></div>
+   <!-- need to add favicon -->
+   <div class="type" >
+          <span> <button mat-button [matMenuTriggerFor]="categeory">Categeory</button></span>
+           <span> <button mat-button [matMenuTriggerFor]="district">District</button></span>
+   </div>
+   <mat-menu #district="matMenu" >
+       <div class="menuitems" *ngFor="let district of districts">
+       <button mat-menu-item>
+           <mat-icon >home</mat-icon>
+           <div id="d"  (click)="getDistrict($event)">{{district}}</div>
+       </button>
+      </div>
+   </mat-menu>
+   <mat-menu class="categeory" #categeory="matMenu" >
+       <div class="categeoryitems"  *ngFor="let c of cat">
+       <button mat-menu-item>
+        <img src="../assets/img/avator.jpeg" alt="item1">
+         <!-- <div id="d">{{c.title}} -{{c.description}} </div> -->
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{c.description}}</mat-card-title>
+                <mat-card-subtitle color="accent">{{c.description}}</mat-card-subtitle>
+            </mat-card-header>
+
+        </mat-card>
+        </button>
+       </div>
+   </mat-menu> 
+   <div>
+    <span>About us</span>
+    <span><mat-icon>group</mat-icon>
+        <button mat-button [matMenuTriggerFor]="categeory">{{user}}</button></span>
+   </div> 
+</mat-toolbar>

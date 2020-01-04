@@ -1,0 +1,40 @@
+<div class="background">
+    <section class="heading">
+       <app-navbar></app-navbar>
+    </section>
+    <section class="body">
+      <!-- create mat card -->
+      <div id="body">
+          <ng-container *ngFor="let roll of jobDic; index as i" >
+      <mat-card >
+          <mat-card-header>
+          <mat-card-title><u>{{roll.title}}</u>&nbsp;&nbsp;&nbsp;&nbsp; <span color="accent">{{roll.created_date}}</span></mat-card-title>
+          <mat-card-subtitle><i>{{roll.name}}&nbsp;&nbsp;&nbsp; District: <span>{{roll.district}}</span></i></mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+              <div class="mat-cont">
+              <img src="../assets/img/avator.jpeg" alt="card image">
+              <div id="like">
+                <!-- need to create pipe for show  as 1M 2K -->
+                <span matBadge="{{likes | count}}" matBadgeOverlap="false"  matBadgeColor="accent"><mat-icon>thumb_up</mat-icon></span>               
+              </div>        
+              <div id="like">
+                <span matBadge="{{comments}}" matBadgeOverlap="false" matBadgeColor="primary"><mat-icon>sms</mat-icon></span>
+              </div>
+              </div>
+              <div>
+                  {{roll.description}}
+              </div>
+          </mat-card-content>
+          <mat-card-actions align="end">
+              <button color="accent" mat-raised-button >more details..</button>
+          </mat-card-actions>
+      </mat-card>
+      
+    </ng-container>
+      </div>
+    </section>
+    <section class="foot">
+          {{likes | count}}
+    </section>
+</div>

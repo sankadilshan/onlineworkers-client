@@ -8,15 +8,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageRegistrationComponent } from './components/page-registration/page-registration.component';
 import { PageLoginComponent } from './components/page-login/page-login.component';
 import { NotfoundcomponentComponent } from './components/notfoundcomponent/notfoundcomponent.component';
-import { MainApplicationComponent } from './components/main-application/main-application.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule, MatInputModule, MatIconModule} from '@angular/material';
+import {MatButtonModule, MatInputModule, MatIconModule, MatToolbarModule, MatMenuModule, MatBadgeModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatVideoModule} from 'mat-video';
 import { PageFootComponent } from './components/page-foot/page-foot.component';
-import { PageLoginMiddleComponent } from './components/page-login-middle/page-login-middle.component'
+import { PageLoginMiddleComponent } from './components/page-login-middle/page-login-middle.component';
+import { PageHomeComponent } from './components/page-home/page-home.component';
+import { NavbarComponent } from './components/navbar/navbar.component'
+import { CounterPipe } from './custom-pipe/counter.pipe';
 
 @NgModule({
   declarations: [
@@ -24,10 +26,12 @@ import { PageLoginMiddleComponent } from './components/page-login-middle/page-lo
     PageRegistrationComponent,
     PageLoginComponent,
     NotfoundcomponentComponent,
-    MainApplicationComponent,
     DashboardComponent,
     PageFootComponent,
-    PageLoginMiddleComponent
+    PageLoginMiddleComponent,
+    PageHomeComponent,
+    NavbarComponent,
+    CounterPipe
 
   ],
   imports: [
@@ -41,7 +45,10 @@ import { PageLoginMiddleComponent } from './components/page-login-middle/page-lo
     FormsModule,
     MatInputModule,
     MatIconModule,
-   MatVideoModule
+    MatVideoModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatBadgeModule
    // SlideshowModule
   ],
   providers: [],

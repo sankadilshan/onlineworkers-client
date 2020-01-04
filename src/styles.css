@@ -12,3 +12,8 @@ f-container{
 f-container> *{
     width:100%;
 }
+.mat-card{
+    background-color: white;
+    color: black;
+}
+

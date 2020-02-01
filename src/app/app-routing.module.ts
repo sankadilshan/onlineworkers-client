@@ -6,6 +6,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PageLoginComponent } from './components/page-login/page-login.component';
 import { PageHomeComponent } from './components/page-home/page-home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
    {path: 'register',component: PageRegistrationComponent},
    {path: 'login', component:PageLoginComponent},
    {path:'nav', component: NavbarComponent},
+   {path:'footer', component:FooterComponent},
    {path: '**', component: NotfoundcomponentComponent},
   
 ];

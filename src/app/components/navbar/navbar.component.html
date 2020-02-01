@@ -2,7 +2,12 @@
    <div id="onlineWork"><span><b><i>Online Workers</i></b></span></div>
    <!-- need to add favicon -->
    <div class="type" >
-          <span> <button mat-button [matMenuTriggerFor]="categeory">Categeory</button></span>
+          <span>
+               <button #value (click)="clickCategeory(value)" mat-button  [matMenuTriggerFor]="categeory">Categeory 
+              <mat-icon *ngIf="">chevron_right</mat-icon>
+          
+            </button>
+        </span>
            <span> <button mat-button [matMenuTriggerFor]="district">District</button></span>
    </div>
    <mat-menu #district="matMenu" >
@@ -19,18 +24,44 @@
         <img src="../assets/img/avator.jpeg" alt="item1">
          <!-- <div id="d">{{c.title}} -{{c.description}} </div> -->
         <mat-card>
-            <mat-card-header>
-                <mat-card-title>{{c.description}}</mat-card-title>
-                <mat-card-subtitle color="accent">{{c.description}}</mat-card-subtitle>
+            <mat-card-header id="categeory">
+                <mat-card-title >{{c.title}}</mat-card-title>
+                <mat-card-subtitle>
+                    {{c.description}}
+                </mat-card-subtitle>
             </mat-card-header>
-
+           
         </mat-card>
         </button>
        </div>
    </mat-menu> 
-   <div>
-    <span>About us</span>
-    <span><mat-icon>group</mat-icon>
-        <button mat-button [matMenuTriggerFor]="categeory">{{user}}</button></span>
+   <div id="nav-left">
+    <span ><button (click)="clickAbout()">About us</button></span>
+    <span><mat-icon id="user-icon">group</mat-icon>
+        <button id="user-role" mat-button [matMenuTriggerFor]="user"><b>{{user1 | slice:0:1 }}</b></button></span>
    </div> 
+   
+   <mat-menu class="user"  #user="matMenu" >
+    <!-- <img src="../assets/img/avator.jpeg" alt="item1"> -->
+     <!-- <div id="d">{{c.title}} -{{c.description}} </div> -->
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title ><b color="accent"><i>{{user1}}</i></b>-username</mat-card-title>
+          
+        </mat-card-header> 
+        <mat-card-content id="field-user">
+           <button class="field-user" mat-button>Account</button>
+           <button class="field-user" mat-button>type1</button>
+           <button class="field-user" mat-button>type1</button> 
+           <div id="back-like">
+            <span><mat-icon id="user-icon">thumb_up</mat-icon></span>                  
+           <button id="like" mat-button>{{likes | count}}</button>
+           </div>
+         </mat-card-content>
+        <mat-card-actions align="end">
+            <button id="logout-btn" mat-button>LOGOUT</button>
+        </mat-card-actions>    
+    </mat-card>    
+</mat-menu> 
+
 </mat-toolbar>

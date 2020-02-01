@@ -2,13 +2,14 @@
 mat-toolbar{
     background-color:#ececec;
     color:black;
-    border:#9eccb4 solid 2px;
-    box-shadow: 12px 5px 18px 3px;
-    margin-top:0.5em;
+    /* border:#9eccb4 solid 2px; */
+    box-shadow: 1px 2px 14px -9px;
+    /* margin-top:0.5em; */
    
 }
 .navbar{
     justify-content: space-between;
+    padding-left: 4em;;
 }
 #onlineWork:hover {
     cursor: pointer;
@@ -16,23 +17,23 @@ mat-toolbar{
     transform: scale(1.5);  
 }
 .type{
-    margin-left: -11em;
+    margin-left: -3em;
 }   
 span{
     padding-left:1rem;
 }
 ::ng-deep .mat-menu-panel{
     max-width:none !important;
-    width:1338px; 
+    width:1324px; 
     height: 285px;
     background:rgba(255,255,255,.7);
     margin-top: 1em;
     position: absolute;
-    left: -313px;
+    left: -471px;
 }
 ::ng-deep .categeory{
     position:absolute;
-    left:-203px ;
+    left:-361px ;
 }
 button.mat-menu-item{
    width:50%;
@@ -80,6 +81,7 @@ img:hover{
     display: flex;
     flex-wrap: wrap;
     float: left;
+   
     
 }
 .menuitems .mat-menu-item{
@@ -94,11 +96,11 @@ img:hover{
 #d:hover{
     transform: scale(1.2);
 }
-mai-icon{
+mat-icon{
     color: black;
 }
 mat-icon:hover{
-    color: white;
+    /* color: white; */
     transform: scale(1.2);
 }
 .categeoryitems .mat-menu-item{
@@ -111,3 +113,84 @@ mat-icon:hover{
     background-color: rgba(36, 97, 51, 0.77);
  
 }
+.mat-card{
+    width: 294px;
+    height: 80px;
+}
+#categeory:hover{
+    text-decoration: underline;
+}
+.mat-card-header .mat-card-title{
+    margin-bottom: -25px;
+}
+.mat-card-subtitle{
+    color: rgba(36, 97, 51, 0.77);
+    display: -moz-box;
+    text-align: left;
+}
+div .mat-card-header-text{
+    width: 100px;
+    word-break: keep-all;
+}
+::ng-deep .user{
+    width:20rem;
+    height: 20rem;
+   position: absolute;
+   left:-198px;
+    
+}
+#nav-left{
+    margin-right: -7em;
+}
+::ng-deep .user .mat-card{
+    width:17rem;
+    height: 17rem;
+    background-color: rgba(36, 97, 51, 0.77);
+    margin-left: 8px;
+    border-radius: 11px 3px 203px 1px;
+
+}
+#logout-btn{
+    background-color: white;
+    color: rgba(36, 97, 51, 0.77);
+    position:absolute;
+    top:14rem;
+}
+#logout-btn:hover, .field-user:hover{
+    background-color: rgb(55, 93, 64);
+    color:white;
+}
+.field-user{
+    background-color: #ffffff4a;
+    color: rgba(36, 97, 51, 0.77);
+    margin-bottom: 8px;
+    min-width: -webkit-fill-available;
+    text-align: initial;
+}
+
+#field-user{
+    margin-top:2rem;
+}
+#user-role{
+    background-color:rgb(86, 133, 97);
+    border-radius: 100%;
+    border-radius: 40px 44px 53px 1px;
+    margin-left: 24px;
+}
+#user-icon{
+    margin-top: 0rem;
+    vertical-align:middle;
+}
+#back-like{
+    margin-top: 44px;
+  
+}
+#like{
+    background-color: white;
+    border-radius: 100%;
+    margin-left:1rem;
+}
+
+
+
+

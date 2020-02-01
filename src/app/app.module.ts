@@ -19,6 +19,7 @@ import { PageLoginMiddleComponent } from './components/page-login-middle/page-lo
 import { PageHomeComponent } from './components/page-home/page-home.component';
 import { NavbarComponent } from './components/navbar/navbar.component'
 import { CounterPipe } from './custom-pipe/counter.pipe';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CounterPipe } from './custom-pipe/counter.pipe';
     PageLoginMiddleComponent,
     PageHomeComponent,
     NavbarComponent,
-    CounterPipe
+    CounterPipe,
+    FooterComponent
 
   ],
   imports: [

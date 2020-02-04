@@ -90,7 +90,7 @@ img:hover{
   margin-right: 1em;
   align-items: center;
   border-radius: 5px;
-  background-color: rgba(36, 97, 51, 0.77);
+  background: -webkit-linear-gradient(right,#40a551,#0a0a0a);
  
 }
 #d:hover{
@@ -110,7 +110,7 @@ mat-icon:hover{
     margin-bottom: -4.5px;
     align-items: center;
     border-radius: 5px;
-    background-color: rgba(36, 97, 51, 0.77);
+    background: -webkit-linear-gradient(right,#40a551,#0a0a0a);
  
 }
 .mat-card{
@@ -145,7 +145,7 @@ div .mat-card-header-text{
 ::ng-deep .user .mat-card{
     width:17rem;
     height: 17rem;
-    background-color: rgba(36, 97, 51, 0.77);
+    background: -webkit-linear-gradient(left,#40a551,#0a0a0a);
     margin-left: 8px;
     border-radius: 11px 3px 203px 1px;
 

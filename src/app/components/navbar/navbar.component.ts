@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output,EventEmitter} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+@Output() emitMessage=new EventEmitter<string>()
+@Output() emitMessage1=new EventEmitter<string>()
 user1="Admin"
 districts=['Colombo','Gampaha','Kaluthara','Kandy','Mathale','Nuwara-Eliya','Anuradhapura','Rathnapura',
          'Galle','Mathara','Hambanthota','Madakalapuwa','Ampara','Puththalama','Kurunegala','Jaffna','Polonnaruwa',
@@ -23,8 +25,9 @@ expand=false;
 
   ngOnInit() {
   }
-  getDistrict(event){
-         console.log(event.target.innerHTML)
+  getDistrict(district:string){
+     console.log(district)
+     this.emitMessage.emit(district)
   }
 
   clickCategeory(v){
@@ -32,7 +35,8 @@ expand=false;
     console.log(this.expand)
     //  console.log(v)
   }
-  clickAbout(){
-     this._router.navigate(['home/#sectionFooter']);
+  clickAbout(element){
+    console.log(element)
+     this.emitMessage1.emit(element)
   }
 }

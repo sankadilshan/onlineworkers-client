@@ -48,7 +48,7 @@ img{
     margin-top:-12px;
     margin-right: 2px;
 }
-#like{
+.like{
     margin-top: 1em;
     display:table-caption;
 }
@@ -59,4 +59,35 @@ img{
 }
 #sectionFooter{
     width:1349px;
+}
+#page-control{
+    position: relative;
+    right: -50rem;
+    margin-top: 17px;
+    padding-bottom: 6px;
+    display: inline-flex;
+}
+hr{
+    background-color: transparent;
+    border-color: transparent;
+}
+#page-control /deep/ .ngx-pagination .current{
+    background: #30763b;
+    border-radius: 12%;
+    font-size: x-large;
+   
+}
+#page-control /deep/ .ngx-pagination a{
+    outline-color: #40a551bf;
+}
+#page-control /deep/ .ngx-pagination a:hover{
+    background-color: transparent;
+}
+#top{
+   margin-top:15px;
+   margin-right:9rem;
+   margin-left:-14rem ;
+   height:40px;
+   width:142px ;
+   
 }

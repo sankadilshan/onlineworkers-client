@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 //import {SlideshowModule} from 'ng-slideshow';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +21,9 @@ import { PageHomeComponent } from './components/page-home/page-home.component';
 import { NavbarComponent } from './components/navbar/navbar.component'
 import { CounterPipe } from './custom-pipe/counter.pipe';
 import { FooterComponent } from './components/footer/footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {ScrollToModule} from 'ng2-scroll-to-el';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,7 @@ import { FooterComponent } from './components/footer/footer.component';
     PageHomeComponent,
     NavbarComponent,
     CounterPipe,
-    FooterComponent
+    FooterComponent 
 
   ],
   imports: [
@@ -50,7 +54,10 @@ import { FooterComponent } from './components/footer/footer.component';
     MatVideoModule,
     MatToolbarModule,
     MatMenuModule,
-    MatBadgeModule
+    MatBadgeModule,
+    HttpClientModule,
+    NgxPaginationModule,
+    ScrollToModule.forRoot()
    // SlideshowModule
   ],
   providers: [],

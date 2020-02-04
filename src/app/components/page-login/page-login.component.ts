@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder,Validators} from '@angular/forms'
 import { Register } from 'src/app/models/Register.model';
 import { Router } from '@angular/router';
+import { PaginationServiceService } from 'src/app/service/pagination-service.service';
+import { error } from 'util';
 
 @Component({
   selector: 'app-page-login',
@@ -10,10 +12,13 @@ import { Router } from '@angular/router';
 })
 export class PageLoginComponent implements OnInit {
  hide=true;
+ pageSize=5;
+ pageNumber=4;
+ sortBy="";
  user:Register=new Register();
  loginForm:FormGroup;
 
-  constructor(private formBuilder:FormBuilder, private route:Router) { }
+  constructor(private formBuilder:FormBuilder, private route:Router,private paginationService:PaginationServiceService) { }
 
   ngOnInit() {
     this.loginForm=this.formBuilder.group({
@@ -22,6 +27,9 @@ export class PageLoginComponent implements OnInit {
                                        Validators.minLength(6),
                                       Validators.maxLength(16)]]
     })
+    this.pagination()
+    this.getAll()
+    this.getPages()
   }
 
   onLoginForm(){
@@ -32,5 +40,27 @@ export class PageLoginComponent implements OnInit {
   register(){
     this.route.navigate(['register']);
   }
-
+  pagination(){
+    console.log("hello")
+      this.paginationService.getPage().subscribe(
+        (data:any)=>{
+        console.log(data);
+      },
+      error=>{
+        console.log("error",error.message)
+      })
+  }
+  getAll(){
+   this.paginationService.getAll().subscribe(
+   (data:any)=>{
+     console.log('all',data)
+   },
+   (error:any)=>{
+     console.log('error',error.message)
+   })
+  }
+  getPages(){
+   this.paginationService.getPages(this.pageSize,this.pageNumber,this.sortBy).subscribe(data=>{
+   console.log('pagination',data)})
+  }
 }

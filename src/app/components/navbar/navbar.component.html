@@ -14,7 +14,7 @@
        <div class="menuitems" *ngFor="let district of districts">
        <button mat-menu-item>
            <mat-icon >home</mat-icon>
-           <div id="d"  (click)="getDistrict($event)">{{district}}</div>
+           <div id="d"  (click)="getDistrict(district)">{{district}}</div>
        </button>
       </div>
    </mat-menu>
@@ -36,7 +36,7 @@
        </div>
    </mat-menu> 
    <div id="nav-left">
-    <span ><button (click)="clickAbout()">About us</button></span>
+    <span ><button mat-button [scrollTo]="about">About us</button></span>
     <span><mat-icon id="user-icon">group</mat-icon>
         <button id="user-role" mat-button [matMenuTriggerFor]="user"><b>{{user1 | slice:0:1 }}</b></button></span>
    </div> 

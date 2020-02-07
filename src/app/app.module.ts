@@ -11,7 +11,7 @@ import { PageLoginComponent } from './components/page-login/page-login.component
 import { NotfoundcomponentComponent } from './components/notfoundcomponent/notfoundcomponent.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule, MatInputModule, MatIconModule, MatToolbarModule, MatMenuModule, MatBadgeModule} from '@angular/material';
+import {MatButtonModule, MatInputModule, MatIconModule, MatToolbarModule, MatMenuModule, MatBadgeModule, MatTooltipModule, MatSnackBarModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatVideoModule} from 'mat-video';
@@ -24,7 +24,51 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {ScrollToModule} from 'ng2-scroll-to-el';
+import {NotifierModule,NotifierOptions} from 'angular-notifier';
+import { PaginationServiceService } from './service/pagination-service.service';
 
+const customNotification:NotifierOptions={
+  
+  position: {
+    horizontal: {
+        position: "right",
+        distance: 12
+    },
+    vertical: {
+        position: "top",
+        distance: 70,
+        gap: 5
+    }
+},
+theme: "material",
+behaviour: {
+    autoHide:50000,
+    onClick: false,
+    onMouseover: "pauseAutoHide",
+    showDismissButton: true,
+    stacking: 9,
+  
+},
+animations: {
+    enabled: true,
+    show: {
+        preset: "slide",
+        speed: 300,
+        easing: "ease-in"
+    },
+    hide: {
+        preset: "slide",
+        speed: 300,
+        easing: "ease-out",
+        offset: 50
+    },
+    shift: {
+        speed: 300,
+        easing: "ease-in"
+    },
+    overlap: 150
+}
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +81,7 @@ import {ScrollToModule} from 'ng2-scroll-to-el';
     PageHomeComponent,
     NavbarComponent,
     CounterPipe,
-    FooterComponent 
+    FooterComponent
 
   ],
   imports: [
@@ -57,10 +101,13 @@ import {ScrollToModule} from 'ng2-scroll-to-el';
     MatBadgeModule,
     HttpClientModule,
     NgxPaginationModule,
-    ScrollToModule.forRoot()
+    ScrollToModule.forRoot(),
+    MatTooltipModule,
+    MatSnackBarModule,
+    NotifierModule.withConfig(customNotification)
    // SlideshowModule
   ],
-  providers: [],
+  providers: [PaginationServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

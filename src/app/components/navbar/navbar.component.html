@@ -55,7 +55,12 @@
            <button class="field-user" mat-button>type1</button> 
            <div id="back-like">
             <span><mat-icon id="user-icon">thumb_up</mat-icon></span>                  
-           <button id="like" mat-button>{{likes | count}}</button>
+           <button id="like" mat-button
+                matTooltip="your account likes" 
+                matTooltipShowDelay="500"
+                matTooltipPosition="above"
+                matTooltipHideDelay="5000"
+                matTooltipClass="mat-tool-tip">{{likes | count}}</button>
            </div>
          </mat-card-content>
         <mat-card-actions align="end">

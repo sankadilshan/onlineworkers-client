@@ -25,4 +25,14 @@ export class PaginationServiceService {
   getDetails(){
     return this._http.get('../../assets/mock-data/job-data.json',{responseType:'json'})
   }
+  getByCategeory(address:string,ps:any,pn:any,sb:any){
+    let params={
+      pageSize:ps,
+      pageNumber:pn,
+      sortBy:sb
+    }
+    return this._http.get(this.url+'/address/'+address,{params}).subscribe(
+      data=>{console.log('address',data)}
+    )
+  }
 }

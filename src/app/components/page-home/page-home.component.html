@@ -1,6 +1,6 @@
 <div class="background" >
   <section class="heading" #top>
-    <app-navbar (emitMessage)="getChileEmitMessage($event)"  (emitMessage1)="routingAboutbtn($event)"></app-navbar>
+    <app-navbar (emitMessage)="getChildEmitMessage($event)"  (emitMessage1)="routingAboutbtn($event)"></app-navbar>
     <img id="themeimg" src="../assets/img/Section1.png" alt="theme image">
    <!-- <button [scrollTo]="about" [scrollDuration]="1000" [scrollOffset]="-100">down</button> -->
   </section>
@@ -48,9 +48,10 @@
     <section id="sectionFooter" >
       <hr>
         <div id="page-control" #about>
-          <button id="top" mat-raised-button color="accent" (click)="scroll(top)"> top</button>
+          <button id="top" mat-raised-button color="accent" (click)="scroll(top)"> goto top</button>
       <pagination-controls (pageChange)="pageNumber=$event"></pagination-controls>
       </div>
       <app-footer></app-footer>
     </section>
   </div>
+  <notifier-container id="notifier"></notifier-container>

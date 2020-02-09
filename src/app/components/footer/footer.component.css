@@ -20,7 +20,7 @@ ul li{
     
 }
 
-img{
+#img{
     width:10rem;
     height: 10rem;
     border-radius:100% ;
@@ -42,4 +42,8 @@ img{
 }
 .li{
     cursor:pointer;
+}
+.s-icon{
+   width:40px;
+   height:40px; 
 }

@@ -59,7 +59,7 @@ animations: {
     hide: {
         preset: "slide",
         speed: 300,
-        easing: "ease-out",
+        easing: "ease",
         offset: 50
     },
     shift: {

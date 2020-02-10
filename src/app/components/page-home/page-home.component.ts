@@ -14,9 +14,9 @@ export class PageHomeComponent implements OnInit {
  title="Carpentor"
  name="Nihal Perera"
  likes=20003
- comments:Number=12
- pageSize:Number=16;
- pageNumber:Number=1;
+ comments:number=12
+ pageSize:number=16;
+ pageNumber:number=1;
  sortBy="";
  jobDic:Array<any>
  user:string='nimal'

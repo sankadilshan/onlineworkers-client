@@ -13,5 +13,7 @@ msg=' comments'
 
   ngOnInit() {
   }
-
+  comments(){
+    console.log("comments")
+  }
 }

@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder,Validators} from '@angular/forms'
 import { Register } from 'src/app/models/Register.model';
 import { Router } from '@angular/router';
-import { PaginationServiceService } from 'src/app/service/pagination-service.service';
 import { error } from 'util';
-
+import { SocialService } from 'src/app/service/social.service';
 @Component({
   selector: 'app-page-login',
   templateUrl: './page-login.component.html',
@@ -18,7 +17,7 @@ export class PageLoginComponent implements OnInit {
  user:Register=new Register();
  loginForm:FormGroup;
 
-  constructor(private formBuilder:FormBuilder, private route:Router,private paginationService:PaginationServiceService) { }
+  constructor(private formBuilder:FormBuilder, private route:Router,private _socialService:SocialService) { }
 
   ngOnInit() {
     this.loginForm=this.formBuilder.group({
@@ -42,7 +41,7 @@ export class PageLoginComponent implements OnInit {
   }
   pagination(){
     console.log("hello")
-      this.paginationService.getPage().subscribe(
+      this._socialService.getPage().subscribe(
         (data:any)=>{
         console.log(data);
       },
@@ -51,7 +50,7 @@ export class PageLoginComponent implements OnInit {
       })
   }
   getAll(){
-   this.paginationService.getAll().subscribe(
+   this._socialService.getAll().subscribe(
    (data:any)=>{
      console.log('all',data)
    },
@@ -60,7 +59,7 @@ export class PageLoginComponent implements OnInit {
    })
   }
   getPages(){
-   this.paginationService.getPages(this.pageSize,this.pageNumber,this.sortBy).subscribe(data=>{
+   this._socialService.getPages(this.pageSize,this.pageNumber,this.sortBy).subscribe(data=>{
    console.log('pagination',data)})
   }
 }

@@ -91,7 +91,8 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
-              "src/styles.css"
+              "src/styles.css",
+              "src/spinner.scss"
             ],
             "scripts": []
           }
@@ -126,6 +127,6 @@
   },
   "defaultProject": "onlineWorkers-client",
   "cli": {
-    "analytics": "b1725c1b-3076-4da6-a405-8cf29f0bf7ce"
+    "analytics": true
   }
 }

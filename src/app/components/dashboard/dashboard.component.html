@@ -8,7 +8,7 @@
                 <mat-card-title>find your worker easy way...</mat-card-title>
                 <mat-card-subtitle>& give your service...</mat-card-subtitle>
                 </mat-card-header> 
-                <img mat-card-image src="../assets/img/dashboard.jpg" alt="dashboard-image">
+                <img mat-card-image src="../assets/img/logo/logo11.png" alt="dashboard-image">
                 <mat-card-content>
                     <p>
                         xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -28,22 +28,22 @@
                 <li>
             <mat-card-header>
               <div mat-card-avatar class="dashboard-avatar"></div>
-              <mat-card-title><b>followers</b></mat-card-title>
-              <mat-card-subtitle>{{fcount}}</mat-card-subtitle>
+              <mat-card-title><b>comments</b></mat-card-title>
+              <mat-card-subtitle id="comments" (click)="showDialog()"><b>{{ccount}}</b></mat-card-subtitle>
             </mat-card-header>
                 </li>
                 <li>
             <mat-card-header>
               <div mat-card-avatar class="dashboard-avatar"></div>
               <mat-card-title><b>likes</b></mat-card-title>
-              <mat-card-subtitle>{{lcount}}</mat-card-subtitle>
+              <mat-card-subtitle><b>{{lcount}}</b></mat-card-subtitle>
               </mat-card-header>
                 </li>
                 <li>
               <mat-card-header>
               <div mat-card-avatar class="dashboard-avatar"></div>
               <mat-card-title><b>members</b></mat-card-title>
-              <mat-card-subtitle>{{mcount}}</mat-card-subtitle>
+              <mat-card-subtitle><b>{{mcount}}</b></mat-card-subtitle>
               </mat-card-header>
               </li>
               </ul>

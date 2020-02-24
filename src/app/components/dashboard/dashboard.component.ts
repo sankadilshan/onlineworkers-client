@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as Immutable from 'immutable';
+import { SocialService } from 'src/app/service/social.service';
+import { MatDialog } from '@angular/material';
+import { CommentsComponent } from '../comments/comments.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,10 +12,10 @@ import * as Immutable from 'immutable';
 })
 export class DashboardComponent implements OnInit {
 
-  fcount=654;
-  lcount=1001;
-  mcount=524;
-  constructor( private router:Router) { }
+  lcount:any=1001;
+  mcount:any=524;
+  ccount:any=12;
+  constructor( private router:Router,private _socialService:SocialService,private _dialog:MatDialog) { }
 
   directToLogin(){
     this.router.navigate(['login']);
@@ -29,7 +32,19 @@ export class DashboardComponent implements OnInit {
     { url:'src\assets\img\dashboard1.jpg', title:'2stimg'},
    ])
   ngOnInit() {
-
+      this._socialService.getAllComments().subscribe(data=>{
+        this.ccount=data['allTotalElement']
+        console.log(data);
+        console.log(data['allTotalElement']);
+      })
+      this._socialService.getAllMembers().subscribe(data=>{
+          this.lcount=data;
+          console.log(data)
+      })
+      
+  }
+  showDialog(){
+    this._dialog.open(CommentsComponent);
   }
 
 }

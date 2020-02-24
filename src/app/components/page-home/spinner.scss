@@ -1,0 +1,36 @@
+.spinner{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    margin: 20rem 0 0 38rem;
+    background: #69f0ae47;
+    position: relative;
+    display: inline-block;
+    &::after,&::before{
+           content: '';
+           display:block;
+           width: 50px;
+           height: 50px;
+           border-radius: 50%;
+    } 
+}
+.spinner-1::after{
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  border: 2px solid transparent;
+  border-top-color: #3fa24f;
+  border-bottom-color:#1f4726 ;
+  animation: spinny 1s linear infinite;
+}
+
+@keyframes spinny {
+    0% {transform: rotate(0deg) scale(1);}
+    50% {transform: rotate(90deg) scale(1.2);}
+    100% {transform: rotate(360deg) scale(1);}
+}
+
+.h{
+  color: red;
+  background: blue;
+}

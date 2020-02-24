@@ -4,19 +4,23 @@
     <img id="themeimg" src="../assets/img/Section1.png" alt="theme image">
    <!-- <button [scrollTo]="about" [scrollDuration]="1000" [scrollOffset]="-100">down</button> -->
   </section>
+  <div class="page-control" #about>
+
+<pagination-controls (pageChange)="pageNumber=$event"></pagination-controls>
+</div>
   <div class="body">
     <!-- create mat card -->
-    <div id="body">
-      <ng-container *ngFor="let roll of jobDic | paginate:{
-                                      
+    <div id="body" *ngIf="load else spinner"  >
+      <ng-container *ngFor="let job of jobDiscription | paginate:{
+
                                        itemsPerPage:pageSize,
                                        currentPage:pageNumber
                                        } ">
         <mat-card>
           <mat-card-header>
-            <mat-card-title><u>{{roll.title}}</u>&nbsp;&nbsp;&nbsp;&nbsp; <span
-                color="accent">{{roll.created_date}}</span></mat-card-title>
-            <mat-card-subtitle><i>{{roll.name}}&nbsp;&nbsp;&nbsp; District: <span>{{roll.district}}</span></i>
+            <mat-card-title><u>{{job.jobTitle}}</u>&nbsp;&nbsp;&nbsp;&nbsp; <span
+                color="accent">{{job.registerDate}}</span></mat-card-title>
+            <mat-card-subtitle><i>{{job.name}}&nbsp;&nbsp;&nbsp; <span>kandy</span></i>
             </mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
@@ -24,18 +28,18 @@
               <img src="../assets/img/avator.jpeg" alt="card image">
               <div class="like">
                 <!-- need to create pipe for show  as 1M 2K -->
-                <span matBadge="{{likes | count}}" matBadgeOverlap="false" matBadgeColor="accent">
+                <span matBadge="{{job.likes | count}}" matBadgeOverlap="false" matBadgeColor="accent">
                   <mat-icon>thumb_up</mat-icon>
                 </span>
               </div>
               <div class="like">
-                <span matBadge="{{comments}}" matBadgeOverlap="false" matBadgeColor="primary">
+                <span matBadge="{{job.comments | count}}" matBadgeOverlap="false" matBadgeColor="primary">
                   <mat-icon>sms</mat-icon>
                 </span>
               </div>
             </div>
             <div>
-              {{roll.description}}
+              {{job.description}}
             </div>
           </mat-card-content>
           <mat-card-actions align="end">
@@ -45,9 +49,14 @@
 
       </ng-container>
     </div>
+    <ng-template #spinner >
+          <div class="spinner spinner-1"></div>
+    </ng-template>
+    </div>
+    <div>
     <section id="sectionFooter" >
       <hr>
-        <div id="page-control" #about>
+        <div class="page-control" #about>
           <button id="top" mat-raised-button color="accent" (click)="scroll(top)"> goto top</button>
       <pagination-controls (pageChange)="pageNumber=$event"></pagination-controls>
       </div>
@@ -55,3 +64,5 @@
     </section>
   </div>
   <notifier-container id="notifier"></notifier-container>
+</div>
+

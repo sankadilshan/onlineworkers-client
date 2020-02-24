@@ -1,0 +1,30 @@
+
+.mat-dialog-title{
+    margin:0 0 3px
+}
+::ng-deep .mat-dialog-container{
+    background:rgba(255,255,255,.5);
+    padding:13px 24px 24px 24px;
+    width: 19rem;
+    height: 38rem;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+#cbody{
+    margin-left: -16px;
+    background-color:darkslategrey;
+    border-radius: 1px 1px 1px 1px;
+    padding-left: 10px;
+    padding-top: 12px;
+    padding-bottom:12px;
+    height: fit-content;
+    width: 275px;
+    font-size: small;
+}
+::ng-deep #action{
+    height: 4rem;
+}
+.mat-dialog-content{
+   max-height: 84vh;
+}

@@ -1,9 +1,9 @@
-#background{
+ #background{
     background-image: url(src\assets\img\b41.jfif); 
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
-    height: 625px;
+    height: 665px;
     color: bisque;
 }
 .dashboard-card{
@@ -20,14 +20,14 @@ mat-card-header {
     margin-bottom: 10px;
 }
 .dashboard-avatar{
- background-image: url(src\assets\img\avator.jpeg);
+ background-image: url(src\assets\img\logo\logo2.png);
  background-size: cover;
 }
 .mat-card-image{
     margin:0 -16px 11px 40px;
 }
-mat-card-header,img:hover {
-    animation: shake 0,5s;
+img:hover {
+    animation: shake 0.5s;
     animation-iteration-count: infinite;
 }
 @keyframes shake{
@@ -70,4 +70,12 @@ li{
     top:280px;
     background-color: transparent;
     
+}
+.mat-card-subtitle{
+    color: #000;
+    font-weight: 500;
+}
+#dashboard-foot #comments:hover{
+    font-size: x-large;
+    cursor: pointer;
 }

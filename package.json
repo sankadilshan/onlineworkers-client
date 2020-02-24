@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve  ",
+    "start": "ng serve",
     "build": "ng build --prod",
     "postbuild": "npm run deploy",
     "predeploy": "rimraf ../onlineWorker-server/src/main/resources/static && mkdirp ../onlineWorker-server/src/main/resources/static",

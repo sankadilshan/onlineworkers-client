@@ -4,7 +4,7 @@
     font-family: Arial, Helvetica, sans-serif;
     background-size:auto;
     background-repeat: no-repeat;
-    width: 100%;
+    width: 100%; 
     max-width: 1350px;
     height: max-content;
 }
@@ -12,14 +12,16 @@
     display: flex;
     flex-wrap: wrap;
     float:left;
-    max-width: 1350px;;
+    max-width: 1350px;
+    
 
 }
 mat-card{
     flex: 1 1 20%;
     width:12em;
+    max-width:17em;
     height: 17em;
-    margin: 3em 0 0 2em;
+    margin: 1em 0 0 2em;
     transition: all 1.9s;
     perspective: 23rem;
     position: relative;
@@ -61,7 +63,7 @@ img{
 #sectionFooter{
     width:1349px;
 }
-#page-control{
+.page-control{
     position: relative;
     right: -50rem;
     margin-top: 17px;
@@ -72,18 +74,19 @@ hr{
     background-color: transparent;
     border-color: transparent;
 }
-#page-control /deep/ .ngx-pagination .current{
+.page-control /deep/ .ngx-pagination .current{
     background: #30763b;
     border-radius: 12%;
     font-size: x-large;
    
 }
-#page-control /deep/ .ngx-pagination a{
+.page-control /deep/ .ngx-pagination a{
     outline-color: #40a551bf;
 }
-#page-control /deep/ .ngx-pagination a:hover{
+.page-control /deep/ .ngx-pagination a:hover{
     background-color: transparent;
 }
+ 
 #top{
    margin-top:15px;
    margin-right:9rem;
@@ -96,3 +99,10 @@ hr{
     width:8rem;
     height: 8rem;
 }
+.body{
+    height: 80rem;
+}
+::ng-deep .mat-card:hover{
+    box-shadow: 0px 0px 10px 2px #105692b8;
+}
+

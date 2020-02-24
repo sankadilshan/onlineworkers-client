@@ -11,7 +11,7 @@ import { PageLoginComponent } from './components/page-login/page-login.component
 import { NotfoundcomponentComponent } from './components/notfoundcomponent/notfoundcomponent.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule, MatInputModule, MatIconModule, MatToolbarModule, MatMenuModule, MatBadgeModule, MatTooltipModule, MatSnackBarModule} from '@angular/material';
+import {MatButtonModule, MatInputModule, MatIconModule, MatToolbarModule, MatMenuModule, MatBadgeModule, MatTooltipModule, MatSnackBarModule, MatDialogModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatVideoModule} from 'mat-video';
@@ -25,7 +25,10 @@ import { HttpClientModule } from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {ScrollToModule} from 'ng2-scroll-to-el';
 import {NotifierModule,NotifierOptions} from 'angular-notifier';
-import { PaginationServiceService } from './service/pagination-service.service';
+import { SocialService } from './service/social.service';
+import { CommentsComponent } from './components/comments/comments.component';
+import { UserinfoService } from './service/userinfo.service';
+
 
 const customNotification:NotifierOptions={
   
@@ -42,7 +45,7 @@ const customNotification:NotifierOptions={
 },
 theme: "material",
 behaviour: {
-    autoHide:50000,
+    autoHide:1000,
     onClick: false,
     onMouseover: "pauseAutoHide",
     showDismissButton: true,
@@ -59,7 +62,7 @@ animations: {
     hide: {
         preset: "slide",
         speed: 300,
-        easing: "ease",
+        easing: "ease-in",
         offset: 50
     },
     shift: {
@@ -81,9 +84,11 @@ animations: {
     PageHomeComponent,
     NavbarComponent,
     CounterPipe,
-    FooterComponent
+    FooterComponent,
+    CommentsComponent
 
   ],
+  entryComponents:[CommentsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -104,10 +109,11 @@ animations: {
     ScrollToModule.forRoot(),
     MatTooltipModule,
     MatSnackBarModule,
-    NotifierModule.withConfig(customNotification)
+    NotifierModule.withConfig(customNotification),
+    MatDialogModule
    // SlideshowModule
   ],
-  providers: [PaginationServiceService],
+  providers: [SocialService,UserinfoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

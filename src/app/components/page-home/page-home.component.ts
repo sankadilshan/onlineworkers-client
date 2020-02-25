@@ -39,7 +39,7 @@ export class PageHomeComponent implements OnInit {
              private _router:Router,
              private _scrollService:ScrollToService,
              private _notifier:NotifierService
-              private user:U) { }
+             ) { }
 
   ngOnInit() {
 

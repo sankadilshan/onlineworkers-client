@@ -1,0 +1,289 @@
+<app-navbar></app-navbar>
+<div class="b-color">
+  <div id="cover">
+    <div class="overlay">
+      <div class="text">
+        <h2>Online Workers</h2>
+        <p class="p m">Hello! this is <b>{{_username}}</b>.</p>
+        <p class="p">Welcome to my profile.</p>
+      </div>
+    </div>
+  </div>
+  <div class="profile">
+    <img id="profile-pic" [src]="_ppicurl" alt="profile picture">
+    <input type="file" name="picture" #file style="opacity: 0;outline: none;" (change)="onChanged($event)">
+    <div id="p-pic-camera" matTooltip="edit profile picture" matTooltipShowDelay="500" matTooltipPosition="above"
+      matTooltipHideDelay="5000" matTooltipClass="mat-tool-tip">
+
+      <mat-icon appearance="outline" (click)="file.click(file.value)">photo_camera</mat-icon>
+    </div>
+  </div>
+  <div id="middle">
+    <div id="likes-comments">
+      <div class="item">
+        <mat-icon class="anim a">favorite_border</mat-icon>
+        <mat-icon class="anim b">favorite_border</mat-icon>
+        <mat-icon class="anim c">favorite_border</mat-icon>
+        <mat-icon class="anim d">favorite_border</mat-icon>
+        <mat-icon class="anim e">favorite_border</mat-icon>
+        <mat-icon>favorite</mat-icon>&nbsp;&nbsp;&nbsp;{{likes| count}}
+      </div>
+      <div class="item">
+        <mat-icon>sms</mat-icon>&nbsp;&nbsp;&nbsp;{{comments | count }}
+
+
+      </div>
+    </div>
+    <div id="user-details">
+      <h3>My Details</h3>
+      <div id="containt">
+        <b>- &nbsp;{{username}}</b><br><br>
+        - &nbsp;{{description | titlecase}}<br><br>
+        - &nbsp;{{address}}<br><br>
+        - &nbsp; {{contactNo}}<br><br>
+        - &nbsp; {{area}}<br>
+      </div>
+    </div>
+    <div id="nav">
+      <ul>
+        <li (click)="scroll(post)">create post </li>
+        <li>|</li>
+        <li (click)="scroll(post)">edit profile </li>
+        <li>|</li>
+        <li (click)="scroll(post)">additional info </li>
+      </ul>
+    </div>
+    <div id="c-view">
+      <div *ngIf="load else spinner">
+        <ng-container *ngFor="let comment of commentsarray" #ele>
+          <mat-card>
+            <mat-card-header>
+              <img mat-card-avatar [src]="_pavatar" alt="">
+              <mat-card-subtitle><b>{{comment.username | titlecase}}</b></mat-card-subtitle>
+              <mat-card-subtitle>{{comment.date}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <div>{{comment.msg | titlecase}}&nbsp;&nbsp;&nbsp;&nbsp;
+                <span (click)="ele.class = ele.class == 'showChildren'?'':'showChildren'"
+                  class="reply">replies...</span>
+                <span class="reply" (click)="ele.class = ele.class == 'showChildren1'? '' : 'showChildren1'">+
+                  add</span>
+              </div>
+            </mat-card-content>
+          </mat-card>
+          <div class="reply-bar" [ngClass]="{hideChildren : ele.class !== 'showChildren'}">
+            <div *ngFor="let c of commentsarray">
+              <img mat-card-avatar [src]="_pavatar" alt="profile pic">
+              <div class="reply-msg"><i>{{c.username | titlecase}}</i>
+                <br>{{c.msg}}</div><br>
+              <!-- <img mat-card-avatar [src]="_pavatar" alt="profile pic">
+            <div class="reply-msg"><i>{{_username}}</i> <br>{{msg}}</div> -->
+              <hr>
+            </div>
+          </div>
+          <div class="reply-bar reply-form" [ngClass]="{hideChildren : ele.class !== 'showChildren1'}">
+            <div class="reply-msg form-msg">
+              <form [formGroup]="replyForm" (ngSubmit)="saveReply()">
+                <mat-form-field style="width:265px">
+                  <mat-label color="accent">reply on me </mat-label>
+                  <textarea matInput id="reply" formControlName="reply" [(ngModel)]="reply"></textarea>
+                </mat-form-field>
+                <button mat-button mat-raised-button type="submit" class="c-btn">+ add</button>
+              </form>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div>
+        <ng-template #spinner>
+          <div class="spinner spinner-1"></div>
+        </ng-template>
+      </div>
+    </div>
+    <div id="post-1">
+      <h2 class="h2"> more details..</h2>
+    </div>
+    <div id="post-2"></div>
+    <div id="post-last">
+      <div class="overlay1">
+        <div class="overlay1-text">
+          <h3>JobTitle</h3>
+          -&nbsp;&nbsp;valid&nbsp;:&nbsp;&nbsp;&nbsp;{{date}}
+        </div>
+      </div>
+      <img mat-image id="post-img" [src]="_pavatar" alt="post image">
+      <div id="p-details">
+        <h3 style="padding: inherit;">{{jobtitle | titlecase}}</h3>
+        -&nbsp;&nbsp;create date&nbsp;:&nbsp; {{date}} <br>
+        -&nbsp;&nbsp;likes&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{likes}} <br>
+        -&nbsp;&nbsp;comments&nbsp;:&nbsp;&nbsp;&nbsp;{{comments}}
+      </div>
+      <div id="p-details1">
+        -&nbsp;&nbsp; description&nbsp;:&nbsp;&nbsp;<br>{{description | titlecase}}
+        <br><br>
+        -&nbsp;&nbsp;contact&nbsp;:&nbsp;&nbsp;{{contactNo}}
+        <br>
+        -&nbsp;&nbsp;email&nbsp;:&nbsp;&nbsp;{{email}}
+        <br>
+        -&nbsp;&nbsp;leave a comment&nbsp;:&nbsp;&nbsp;<br>
+        <form [formGroup]="commentForm" (ngSubmit)="saveComment()">
+          <mat-form-field style="width:300px">
+            <textarea matInput id="comment" formControlName="comment" [(ngModel)]="comment"
+              placeholder="comment on me"></textarea>
+          </mat-form-field>
+          <button mat-button mat-raised-button type="submit" class="c-btn" (click)="toggle()">+ add</button>
+          <mat-icon class="anim1 a1" *ngIf="show">lens</mat-icon>
+          <mat-icon class="anim1 b1" *ngIf=!show>lens</mat-icon>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div><img class="back-middle-img" src="../assets/img/pic2.jpg" alt="back-middleimg"></div>
+  <div class="u-info">
+    <div #post>
+      <mat-horizontal-stepper linear #hstepper>
+        <mat-step [stepControl]="userInfoForm1">
+          <form [formGroup]="userInfoForm1" (ngSubmit)="userInfoForm1.valid && onSubmitUserDetails()" novalidate>
+            <ng-template matStepLabel>fill out your persional details </ng-template>
+            <mat-form-field style="width: 350px;">
+              <mat-label>Fullname</mat-label>
+              <input matInput formControlName="fullname" style="width: 350px;" placeholder="first name, last name"
+                required>
+            </mat-form-field> <br>
+            <mat-form-field style="width: 350px;">
+              <mat-label>Address</mat-label>
+              <input matInput formControlName="address" style="width: 350px;" placeholder="address" required>
+            </mat-form-field> <br>
+            <mat-form-field style="width: 350px;">
+              <mat-label>City</mat-label>
+              <input matInput formControlName="city" style="width: 350px;" placeholder="city" required>
+            </mat-form-field><br>
+            <mat-form-field style="width: 350px;">
+              <mat-label>District</mat-label>
+              <input matInput formControlName="district" style="width: 350px;" placeholder="district" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="userInfoForm2">
+          <form [formGroup]="userInfoForm2" (ngSubmit)="userInfoForm2.valid && onSubmitUserDescribePath()" novalidate>
+            <ng-template matStepLabel>describe your path</ng-template>
+            <mat-form-field style="width: 350px;">
+              <mat-label>description(describe about you)</mat-label>
+              <textarea matInput id="description" formControlName="description" style="width: 350px;"
+                placeholder="create your description" cols="50" rows="10" required></textarea>
+              <mat-hint>make between 100-150 words</mat-hint>
+            </mat-form-field> <br>
+            <mat-form-field style="width: 350px;">
+              <mat-label>Area(job)</mat-label>
+              <input matInput formControlName="userarea" style="width: 350px;" placeholder="your job area " required>
+              <mat-hint>(Ex: carpenter, plumber, teller, ...)</mat-hint>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="userInfoForm3">
+          <form [formGroup]="userInfoForm3" (ngSubmit)="userInfoForm3.valid && onSubmitUserExperiance()" novalidate>
+            <mat-form-field style="width: 350px;">
+              <mat-label>your experiances</mat-label>
+              <textarea matInput id="experiance" formControlName="experiance" style="width: 350px;"
+                placeholder="mention your experiances" cols="50" rows="10" required></textarea>
+              <mat-hint>make between 100-150 words</mat-hint>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="submitDetails()">Submit</button>
+            <button mat-button (click)="hstepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>
+    <div class="v-s">
+      <mat-vertical-stepper linear #vstepper>
+        <mat-step [stepControl]="jobForm1">
+          <form [formGroup]="jobForm1" (ngSubmit)="jobForm1.valid && onSubmitJobForm1()" novalidate>
+            <ng-template matStepLabel>crete new post </ng-template>
+            <mat-form-field style="width: 350px;">
+              <mat-label>Job Title</mat-label>
+              <input matInput formControlName="jobtitle" style="width: 350px;" placeholder="carpenter, data entry, driver, ..."
+                required>
+            </mat-form-field> <br>
+            <mat-form-field style="width: 350px;">
+              <mat-label>job description</mat-label>
+              <textarea matInput id="jdescription" formControlName="jdescription" style="width: 350px;"
+                placeholder="create your description" cols="50" rows="10" required></textarea>
+              <mat-hint>make between 100-150 words</mat-hint>
+            </mat-form-field> <br>
+            <mat-form-field style="width: 350px;">
+              <mat-label>Valid to</mat-label>
+              <input  matInput formControlName="validto" [min]="minDate" [matDatepicker]="datepicker" style="width: 350px;" placeholder="validto" required>
+              <mat-datepicker-toggle [for]="datepicker" matSuffix></mat-datepicker-toggle>
+              <mat-datepicker #datepicker></mat-datepicker>
+            </mat-form-field><br>
+            <mat-form-field style="width: 350px;">
+              <mat-label>Contact</mat-label>
+              <input matInput  formControlName="contact" style="width: 350px;" placeholder="contact" >
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>next</button>
+            </div>
+          </form>
+        </mat-step> 
+        <mat-step >
+          <!-- <form [formGroup]="jobForm2" (ngSubmit)="jobForm2.valid && onSubmitJobForm2()" novalidate> -->
+            <ng-template matStepLabel>add your picture</ng-template>
+
+              <label>choose file for post</label> <br>
+              <input type="file" style="width: 350px;"  [accept]="['.jpg','.jpeg','.png','.svg']" (change)="onFileChange($event)" required>
+
+              <br>
+            <mat-form-field style="width:350px">
+             <mat-label>image name</mat-label>
+             <input matInput  placeholder="add name" style="width:350px" required/>
+            </mat-form-field> <button  mat-button mat-raised-button (click)="onUpload()" [disabled]="disabled">upload</button>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext >next</button>
+            </div>
+          <!-- </form> -->
+        </mat-step>
+
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="submitDetails()">Submit</button>
+            <button mat-button (click)="vstepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-vertical-stepper>
+    </div>
+  </div>
+  <app-footer></app-footer>
+  <app-sidenav></app-sidenav>
+</div>
+
+
+<!-- //first name
+  //last name
+  //address
+  //city district
+
+  //description
+  //user area
+  // -->

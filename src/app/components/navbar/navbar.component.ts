@@ -17,6 +17,10 @@ cat=[
   {title:'Job Role',description:'In this case you can fid kind of job roles,U can find all of your jobs'},
   {title:'Job Role',description:'In this case you can fid kind of job roles,U can find all of your jobs'},
   {title:'Job Role',description:'In this case you can fid kind of job roles,U can find all of your jobs'},
+  {title:'Job Role',description:'In this case you can fid kind of job roles,U can find all of your jobs'},
+  {title:'Job Role',description:'In this case you can fid kind of job roles,U can find all of your jobs'},
+  {title:'Job Role',description:'In this case you can fid kind of job roles,U can find all of your jobs'},
+  {title:'Job Role',description:'In this case you can fid kind of job roles,U can find all of your jobs'},
   {title:'Job Role',description:'In this case you can fid kind of job roles,U can find all of your jobs'}
 ]   
 likes=4000;  

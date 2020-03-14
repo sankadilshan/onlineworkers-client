@@ -1,0 +1,8 @@
+<mat-sidenav-container>
+    <mat-sidenav mode="push" [(opened)]="opened">
+        <button mat-button mat-raised-button [routerLink]="['/home']">user post</button>&nbsp;&nbsp;
+        <button mat-button mat-raised-button [routerLink]="['/home']" >job post</button></mat-sidenav>
+    <mat-sidenav-content>
+        <button mat-button mat-raised-button  (click)="opened=!opened"><mat-icon>line_weight</mat-icon>click</button>
+    </mat-sidenav-content>
+

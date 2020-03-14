@@ -11,11 +11,10 @@ import { PageLoginComponent } from './components/page-login/page-login.component
 import { NotfoundcomponentComponent } from './components/notfoundcomponent/notfoundcomponent.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule, MatInputModule, MatIconModule, MatToolbarModule, MatMenuModule, MatBadgeModule, MatTooltipModule, MatSnackBarModule, MatDialogModule} from '@angular/material';
+import {MatButtonModule, MatInputModule, MatIconModule, MatToolbarModule, MatMenuModule, MatBadgeModule, MatTooltipModule, MatSnackBarModule, MatDialogModule, MatStepperModule, MatDatepicker, MatDatepickerModule, MatNativeDateModule, MatSidenavModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatVideoModule} from 'mat-video';
-import { PageFootComponent } from './components/page-foot/page-foot.component';
 import { PageLoginMiddleComponent } from './components/page-login-middle/page-login-middle.component';
 import { PageHomeComponent } from './components/page-home/page-home.component';
 import { NavbarComponent } from './components/navbar/navbar.component'
@@ -28,6 +27,10 @@ import {NotifierModule,NotifierOptions} from 'angular-notifier';
 import { SocialService } from './service/social.service';
 import { CommentsComponent } from './components/comments/comments.component';
 import { UserinfoService } from './service/userinfo.service';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatFileUploadModule } from 'angular-material-fileupload';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 
 const customNotification:NotifierOptions={
@@ -79,16 +82,17 @@ animations: {
     PageLoginComponent,
     NotfoundcomponentComponent,
     DashboardComponent,
-    PageFootComponent,
     PageLoginMiddleComponent,
     PageHomeComponent,
     NavbarComponent,
     CounterPipe,
     FooterComponent,
-    CommentsComponent
+    CommentsComponent,
+    UserProfileComponent,
+    SidenavComponent
 
   ],
-  entryComponents:[CommentsComponent],
+  entryComponents:[CommentsComponent,PageRegistrationComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -110,7 +114,13 @@ animations: {
     MatTooltipModule,
     MatSnackBarModule,
     NotifierModule.withConfig(customNotification),
-    MatDialogModule
+    MatDialogModule,
+    ScrollingModule,
+    MatStepperModule,
+    MatFileUploadModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSidenavModule
    // SlideshowModule
   ],
   providers: [SocialService,UserinfoService],

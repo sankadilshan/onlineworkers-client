@@ -1,62 +1,56 @@
 <mat-toolbar class="navbar">
-   <div id="onlineWork"><span><b><i>Online Workers</i></b></span></div>
+   <a routerLink="/home"><img id="onlineWork" mat-card-avatar src="../assets/img/logo/logo-final.PNG" alt="logo"></a>
    <!-- need to add favicon -->
    <div class="type" >
           <span>
-               <button #value (click)="clickCategeory(value)" mat-button  [matMenuTriggerFor]="categeory">Categeory 
+               <button #value (click)="clickCategeory(value)" mat-button  [matMenuTriggerFor]="categeory">Categeory
               <mat-icon *ngIf="">chevron_right</mat-icon>
-          
+
             </button>
         </span>
            <span> <button mat-button [matMenuTriggerFor]="district">District</button></span>
+           <span><button mat-button>Recenly posted</button></span>
    </div>
    <mat-menu #district="matMenu" >
        <div class="menuitems" *ngFor="let district of districts">
        <button mat-menu-item>
-           <mat-icon >home</mat-icon>
+           <mat-icon >place</mat-icon>
            <div id="d"  (click)="getDistrict(district)">{{district}}</div>
        </button>
       </div>
    </mat-menu>
    <mat-menu class="categeory" #categeory="matMenu" >
        <div class="categeoryitems"  *ngFor="let c of cat">
-       <button mat-menu-item>
-        <img src="../assets/img/avator.jpeg" alt="item1">
-         <!-- <div id="d">{{c.title}} -{{c.description}} </div> -->
         <mat-card>
+        <img mat-card-avatar  src="../assets/img/avator.jpeg" alt="item1">
             <mat-card-header id="categeory">
-                <mat-card-title >{{c.title}}</mat-card-title>
-                <mat-card-subtitle>
-                    {{c.description}}
-                </mat-card-subtitle>
+                <mat-card-title >{{c.title}}</mat-card-title> <br>
+                <mat-card-subtitle>{{c.description}}</mat-card-subtitle>  
             </mat-card-header>
-           
         </mat-card>
-        </button>
        </div>
-   </mat-menu> 
+   </mat-menu>
    <div id="nav-left">
     <span ><button mat-button [scrollTo]="about">About us</button></span>
-    <span><mat-icon id="user-icon">group</mat-icon>
-        <button id="user-role" mat-button [matMenuTriggerFor]="user"><b>{{user1 | slice:0:1 }}</b></button></span>
-   </div> 
-   
-   <mat-menu class="user"  #user="matMenu" >
+    <span> <button id="user-role" mat-button [matMenuTriggerFor]="user"><b>{{user1 | slice:0:1 }}</b></button></span>
+   </div>
+
+   <mat-menu class="account"  #user="matMenu" >
     <!-- <img src="../assets/img/avator.jpeg" alt="item1"> -->
      <!-- <div id="d">{{c.title}} -{{c.description}} </div> -->
     <mat-card>
         <mat-card-header>
             <mat-card-title ><b color="accent"><i>{{user1}}</i></b>-username</mat-card-title>
-          
-        </mat-card-header> 
+
+        </mat-card-header>
         <mat-card-content id="field-user">
-           <button class="field-user" mat-button>Account</button>
-           <button class="field-user" mat-button>type1</button>
-           <button class="field-user" mat-button>type1</button> 
+           <button class="field-user" mat-button><mat-icon class="nav-i">account_circle</mat-icon>&nbsp;&nbsp;Account</button>
+           <button class="field-user" mat-button><mat-icon class="nav-i">add</mat-icon>&nbsp;&nbsp;create post</button>
+           <button class="field-user" mat-button><mat-icon class="nav-i">notes</mat-icon>&nbsp;&nbsp;additional information</button>
            <div id="back-like">
-            <span><mat-icon id="user-icon">thumb_up</mat-icon></span>                  
+            <span><mat-icon id="user-icon">thumb_up</mat-icon></span>
            <button id="like" mat-button
-                matTooltip="your account likes" 
+                matTooltip="your account likes"
                 matTooltipShowDelay="500"
                 matTooltipPosition="above"
                 matTooltipHideDelay="5000"
@@ -65,8 +59,8 @@
          </mat-card-content>
         <mat-card-actions align="end">
             <button id="logout-btn" mat-button>LOGOUT</button>
-        </mat-card-actions>    
-    </mat-card>    
-</mat-menu> 
+        </mat-card-actions>
+    </mat-card>
+</mat-menu>
 
 </mat-toolbar>

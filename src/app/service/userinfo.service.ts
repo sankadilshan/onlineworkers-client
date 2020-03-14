@@ -12,5 +12,8 @@ export class UserinfoService {
 getUserinfo(){
   return this._http.get(this._profile_service_url);
 }
+getComments(){
+  return this._http.get('../../assets/mock-data/job-data.json');
+}
 
 }

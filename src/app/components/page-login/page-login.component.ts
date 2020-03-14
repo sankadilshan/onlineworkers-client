@@ -4,6 +4,8 @@ import { Register } from 'src/app/models/Register.model';
 import { Router } from '@angular/router';
 import { error } from 'util';
 import { SocialService } from 'src/app/service/social.service';
+import {MatDialog,MatDialogRef,MAT_DIALOG_DATA,MatDialogConfig} from '@angular/material/dialog'
+import { PageRegistrationComponent } from '../page-registration/page-registration.component';
 @Component({
   selector: 'app-page-login',
   templateUrl: './page-login.component.html',
@@ -16,29 +18,56 @@ export class PageLoginComponent implements OnInit {
  sortBy="";
  user:Register=new Register();
  loginForm:FormGroup;
-
-  constructor(private formBuilder:FormBuilder, private route:Router,private _socialService:SocialService) { }
+ path='../assets/img/socialicon/facebook.png'
+ social=[
+   {id:1,alt:'facebook',path:'../assets/img/socialicon/facebook.png'},
+   {id:2,alt:'twitter',path:'../assets/img/socialicon/twitter.png'},
+   {id:3,alt:'google+',path:'../assets/img/socialicon/google+.svg'},
+ ]
+ regi=false
+  constructor(private formBuilder:FormBuilder,
+              private route:Router,
+              private _socialService:SocialService,
+              private _dialog:MatDialog) { }
 
   ngOnInit() {
+    
     this.loginForm=this.formBuilder.group({
-      'username':[this.user.username, [Validators.required]],
-      'password':[this.user.username,[Validators.required,
+      username:[this.user.username, [Validators.required]],
+      password:[this.user.username,[Validators.required,
                                        Validators.minLength(6),
                                       Validators.maxLength(16)]]
     })
+ 
     this.pagination()
     this.getAll()
     this.getPages()
   }
-
+   openRegister():void{
+     const dialogConfig=new MatDialogConfig();
+     dialogConfig.disableClose=true
+     dialogConfig.autoFocus=true
+     this._dialog.open(PageRegistrationComponent);
+    
+   }
+   getErrorMessage(){
+     
+   }
+   socialLogin(id){
+     if(id==1)
+     console.log("facebbok");
+     if(id==2)
+      console.log("twitter");
+      if(id==3)
+      console.log("google")
+   }
+   
   onLoginForm(){
-    alert(this.user.username+"    "+this.user.password)
+    //alert(this.user.username+"    "+this.user.password)
     console.log(this.user.username)
+    this.loginForm.reset();
   }
 
-  register(){
-    this.route.navigate(['register']);
-  }
   pagination(){
     console.log("hello")
       this._socialService.getPage().subscribe(

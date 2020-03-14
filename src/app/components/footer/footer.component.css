@@ -2,11 +2,11 @@
     width: 30rem;
 }
 .footer{
-    height: 12rem;
+    height: 14rem;
     background: -webkit-linear-gradient(right,#40a551,#0a0a0a);
     color:white;
     /* padding-left: 330px; */
-    padding-top:47px;
+    padding-top:62px;
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -25,7 +25,8 @@ ul li{
     height: 10rem;
     border-radius:100% ;
    vertical-align: middle;
-   margin-top:-6rem;
+   position: relative;
+   top: -4rem;
 }
 .mat-icon{
     vertical-align: middle;
@@ -42,8 +43,4 @@ ul li{
 }
 .li{
     cursor:pointer;
-}
-.s-icon{
-   width:40px;
-   height:40px; 
 }

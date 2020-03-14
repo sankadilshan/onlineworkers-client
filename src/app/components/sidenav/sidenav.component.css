@@ -1,0 +1,33 @@
+mat-sidenav-container{
+    height: 55px;
+    width: 320px;
+    background-color: transparent;
+    position: absolute;
+    top: 13rem;
+    left: 1rem;
+    border-radius: 10px;
+}
+mat-sidenav, mat-sidenav-content{
+    padding:8px
+}
+/* .mat-sidenav-content{
+ margin-left: 193px;
+} */
+mat-sidenav{
+    border-radius: 10px 10px;
+    width: 210px;
+    color: white;
+} 
+mat-sidenav button:hover{
+    color: white;
+}
+.mat-drawer.mat-drawer-push{
+    background-color: teal;
+}
+::ng-deep .mat-drawer-backdrop.mat-drawer-shown{
+    visibility: hidden !important;
+}
+.mat-raised-button{
+    height: 0rem;
+    color: turquoise;
+}

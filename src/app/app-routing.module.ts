@@ -7,6 +7,8 @@ import { PageLoginComponent } from './components/page-login/page-login.component
 import { PageHomeComponent } from './components/page-home/page-home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 
 const routes: Routes = [
@@ -16,6 +18,8 @@ const routes: Routes = [
    {path: 'login', component:PageLoginComponent},
    {path:'nav', component: NavbarComponent},
    {path:'footer', component:FooterComponent},
+   {path: 'profile',component:UserProfileComponent},
+   {path:'sidenav',component:SidenavComponent},
    {path: '**', component: NotfoundcomponentComponent},
   
 ];

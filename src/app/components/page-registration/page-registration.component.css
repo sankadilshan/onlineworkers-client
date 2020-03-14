@@ -1,22 +1,86 @@
-.back{
-    background-color:#ececec ;
-}
-.back1{
-    background-color:#00fffc ;
-    width:979px;
-    height: 285px;
+.reg-back{
+    width: fit-content;   
+    height: fit-content;
+   background-color: transparent;
     position: absolute;
-    top:62px;
-    left: 77px;
-    padding:77px
+    top: 7rem;
+    left: 17rem;
 }
-input {
-    width:400px;
+.reg-form{
+      width: 24rem; 
 }
-.mat-card{
-    background-image: url(src\assets\img\b41.jfif);
-
+.reg-form .mat-card,.log-form .mat-card{
+    /* background-color: teal; */
+    background-image: url(src/assets/img/mat-login1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-left: 24px;
+    height: 22rem;
 }
-button{
-    margin-left: 10px;
+.reg-form ::ng-deep .mat-form-field.mat-focused .mat-form-field-label{
+    color:white !important;
+    font-size: medium;
+  } 
+.reg-form ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
+    background-color: white !important;
+  }
+.reg-form ::ng-deep .mat-form-field-ripple{
+    background-color: white !important;
+  }
+ .reg-form ::ng-deep .mat-input-element{
+    caret-color: white;
+  } 
+.reg-form ::ng-deep .mat-form-field-suffix .mat-icon{
+      color: white;
+      cursor: pointer;
+  }
+ 
+  ::ng-deep .mat-card-title{
+      color: white;
+  }
+  .mat-form-field{
+    color:white;
+  }
+ .reg-form button,.log-btn{
+      margin-right: 20px;
+      width: 21rem;
+      margin-bottom:15px;
+      text-align: center;
+  }
+  .log-form{
+      position: absolute;
+      top: 0rem;
+      left: 385px;
+    width: 24rem;
+    color: white;
+  }
+  .a{
+      background-color: #3f51b5;
+  }
+  .b{
+     background-color: #f4511e;
+  }
+  .c{
+      background-color:#03a9f4;
+  }
+  .d{
+      background-color: #a8b4bff2;
+  }
+  .shadow{
+      box-shadow: 1px 1px white;
+  }
+::ng-deep .mat-dialog-container{ 
+    background-color: transparent;
+}
+#btn-close{
+  width:10rem;
+  margin-top: -1rem;
+  margin-right: 17px;
+  color: white;
+  background-color: transparent;
+}
+.mi{
+ float: left;
 }

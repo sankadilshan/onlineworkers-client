@@ -1,70 +1,70 @@
-<div class="back">
-    <div class="back1">
+<div class="reg-back">
+    <div class="reg-form">
         <mat-card>
-                <mat-card-header >
-                        <mat-card-title>Sign up</mat-card-title>
-                        <mat-card-subtitle>If you haven't account yet sign up</mat-card-subtitle>
-                    </mat-card-header>
-        </mat-card>
-        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Sign up</mat-card-title>
+            </mat-card-header>
             <mat-card-content>
-                <div class="f-container">
-                    <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && onSubmitRegister()" novalidate>
-                        <div>
-                            <mat-form-field class="mat-headline" appearance="legacy">
-                               <mat-label>Username</mat-label>
-                               <input id="name"
-                               matInput
-                               formControlName="username"
-                               [(ngModel)]="user.username"
+                <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && onSubmitRegister()" novalidate>
+                    <div>
+                        <mat-form-field style=" width: 20rem;" class="mat-headline" appearance="legacy">
+                            <mat-label>Username</mat-label>
+                            <input id="name" matInput formControlName="username" [(ngModel)]="user.username"
                                 placeholder="username">
-                            </mat-form-field>
-                        </div>
-                        <div>
-                        <mat-form-field>
-                            <input id="password"
-                             matInput 
-                             formControlName="password"
-                             [(ngModel)]="user.password"
-                            [type]="hide ? 'password':'text'"
-                            placeholder="password">
-                                    <mat-icon matSuffix  (click)="hide = !hide" [attr.aria-label]="'hide password'" [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                                    <mat-hint>(password with length between 6-16)</mat-hint>
-                                </mat-form-field>
-                               </div>
-                              <div>
-                                <mat-form-field appearance="legacy">
-                                   <mat-label>Email</mat-label>
-                                   <input id="email"
-                                   matInput
-                                   formControlName="email"
-                                   [(ngModel)]="user.email"
-                                    placeholder="email">
-                                </mat-form-field>
-                            </div>
-                            <div>
-                                <mat-form-field appearance="legacy">
-                                   <mat-label>Contact No.</mat-label>
-                                   <input id="contact"
-                                   matInput
-                                   formControlName="contact"
-                                   [(ngModel)]="user.contact"
-                                    placeholder="contact">
-                                    <mat-hint>(valid contact 071-0/077-6/072)</mat-hint>
-                                </mat-form-field>
-                            </div>
-                            <br>
-                            <div>
-                            <button mat-button type="submit"  mat-raised-button color="accent" [disabled]="!registerForm.valid" >Sign up</button>
-                            <button mat-button mat-raised-button color="accent" (click)="login()">Sign in</button>
-                            </div>
-                    </form>
-                </div>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field style=" width: 20rem;" appearance="legacy">
+                             <mat-label>Password</mat-label>
+                            <input id="password" matInput formControlName="password" [(ngModel)]="user.password"
+                                [type]="hide ? 'password':'text'" placeholder="password">
+                            <mat-icon matSuffix (click)="hide = !hide" [attr.aria-label]="'hide password'"
+                                [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            <mat-hint>(password with length between 6-16)</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field style=" width: 20rem;" appearance="legacy">
+                            <mat-label>Email</mat-label>
+                            <input id="email" matInput formControlName="email" [(ngModel)]="user.email"
+                                placeholder="email">
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field style=" width: 20rem;" appearance="legacy">
+                            <mat-label>Contact No.</mat-label>
+                            <input  id="contact" matInput formControlName="contact" [(ngModel)]="user.contact"
+                                placeholder="contact">
+                            <mat-hint>(valid contact 071-0/077-6/072)</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <br>
+                    <div>
+                        <button mat-button type="submit" mat-raised-button color="accent"
+                            [disabled]="!registerForm.valid" [mat-dialog-close]="registerForm" cdkFocusInitial>Sign
+                            up</button>
+                    </div>
+                </form>
             </mat-card-content>
         </mat-card>
-    </div>  
-    <section>
-      <hr>
-        <app-footer></app-footer>
-    </section>
+    </div>
+    <div class="log-form">
+        <mat-card>
+            <p style="color: white;">------------------------------------ <i>or</i> ------------------------------------
+            </p>
+            <mat-card-header>
+                <mat-card-title>Sign in with</mat-card-title>
+                <mat-card-subtitle>Sign in with your social media account</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <button mat-button mat-raised-button class="log-btn .shadow a"><img class="s-icon mi" src="../assets/img/socialicon/facebook.png" alt="facebook" sizes="small">sign in with Facebook</button><br>
+                <button mat-button mat-raised-button class="log-btn b"><img class="s-icon mi" src="../assets/img/socialicon/google+.svg" alt="google+" sizes="small">sign in with Google</button> <br>
+                <button mat-button mat-raised-button class="log-btn c"><img class="s-icon mi" src="../assets/img/socialicon/twitter.png" alt="twitter" sizes="small">sign in with Twitter</button> <br>
+                <button mat-button mat-raised-button class="log-btn d">sign in with Github</button>
+            </mat-card-content>
+            <mat-card-actions align="right">
+            <button id="btn-close" mat-button mat-raised-button  (click)=" onNoClick()">Close</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
 </div>

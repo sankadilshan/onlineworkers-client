@@ -1,4 +1,13 @@
-{ 
+
+{ "comments":[
+  {"username":"user1","date":"2001/12/01","msg":"thematic unity: a paragraph is a sentence or a group of sentences that supports"},
+  {"username":"user2","date":"2012/12/01","msg":"thematic unity: a paragraph is a sentence or a group of sentences that supports"},
+  {"username":"user3","date":"20017/12/01","msg":"thematic unity: a paragraph is a sentence or a group of sentences that supports"},
+  {"username":"user1","date":"2001/12/01","msg":"thematic unity: a paragraph is a sentence or a group of sentences that supports"},
+  {"username":"user2","date":"2012/12/01","msg":"thematic unity: a paragraph is a sentence or a group of sentences that supports"},
+  {"username":"user3","date":"20017/12/01","msg":"thematic unity: a paragraph is a sentence or a group of sentences that supports"}
+
+],
   "jobDic":[
     {"title":"Carpentor","name":"Nihal Perera","description":"Hello im a carpentor and i find a job. I have more experiance about this job and i do it since 2010","created_date":"2019-12-23","district":"Nuwara-Eliya"},
     {"title":"Plumbor","name":"Sasthri Perera","description":"Hello im a plumber and i find a job. I have more experiance about this job and i do it since 2010","created_date":"2019-12-23","district":"Colombo"},

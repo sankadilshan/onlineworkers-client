@@ -1,5 +1,5 @@
  #background{
-    background-image: url(src\assets\img\b41.jfif); 
+    background-image: url(src\assets\img\12.jpg); 
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
@@ -18,13 +18,17 @@
 }
 mat-card-header {
     margin-bottom: 10px;
+    color: white;
 }
 .dashboard-avatar{
- background-image: url(src\assets\img\logo\logo2.png);
+ background-image: url(src\assets\img\logo\logo-final.PNG);
  background-size: cover;
 }
 .mat-card-image{
-    margin:0 -16px 11px 40px;
+    margin:0 -16px 11px 65px;
+    width:21rem ;
+    height: 18rem;
+    border-radius: 0px 146px 0px 146px;
 }
 img:hover {
     animation: shake 0.5s;
@@ -56,8 +60,8 @@ li{
     left:606px;
     top:478px;
    /* background-image: url(src\assets\img\dashboard.jpg);*/
-   background-color: transparent;
-   color: black;
+   background-color: #00000045;
+   color: white;
    text-shadow:#30825a 4px 9px 40px -11px;
    font-family:italian;
    box-shadow: #30825a 4px 9px 40px -11px; 
@@ -72,7 +76,7 @@ li{
     
 }
 .mat-card-subtitle{
-    color: #000;
+    color: white;
     font-weight: 500;
 }
 #dashboard-foot #comments:hover{

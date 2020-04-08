@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, query, style, stagger, keyframes, animate } from '@angular/animations';
+declare const animMiddle:any
 
 @Component({
   selector: 'app-page-login-middle',
@@ -43,6 +44,8 @@ items=[];
    }
 
   ngOnInit() {
+    animMiddle();
+  
   }
 
 }

@@ -1,0 +1,19 @@
+
+<mat-sidenav-container>
+    <mat-sidenav mode="over" [(opened)]="opened">
+    <div class="search">
+         <mat-form-field style="width: 410px;">
+        <input  matInput style="width: 410px;" type="text" [(ngModel)]="search" name="search" placeholder="keyword">&nbsp;
+      
+    </mat-form-field>
+    <button id="click" mat-button mat-raised-button (click)="searching()">
+        <mat-icon>search</mat-icon>
+    </button>   
+    </div>
+    </mat-sidenav>
+    <mat-sidenav-content class="btn-back">
+           <button style="padding-left: 31rem;" mat-button mat-raised-button  (click)="opened=!opened">
+            <mat-icon>search</mat-icon>
+            search
+        </button>
+  </mat-sidenav-content>

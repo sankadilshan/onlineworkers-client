@@ -1,0 +1,72 @@
+mat-sidenav-container{
+    height: 65px;
+    width: 570px;
+    background-color: transparent;
+    position: absolute;
+    top: 12rem;
+    right: 3rem;
+    border-radius: 6px;
+   
+}
+mat-sidenav, mat-sidenav-content{
+  padding-top: 1rem;
+  
+}
+
+mat-sidenav{
+    border-radius: 10px 10px;
+    width: 471px;
+    color: white;
+} 
+mat-sidenav button:hover{
+    color:white;
+}
+.mat-drawer{
+    background-color: #00808085;
+    top: initial;
+}
+::ng-deep .mat-drawer-backdrop.mat-drawer-shown{
+    visibility: hidden !important;
+}
+.mat-raised-button{
+    height: 0rem;
+    color: turquoise;
+}
+.mat-drawer{
+    transform: translate3d(0,-100%,0);
+}
+.mat-drawer-content{
+    right: 12px;
+    display: inline-block;
+}
+ ::ng-deep .mat-form-field.mat-focused .mat-form-field-label{
+    color:white !important;
+    font-size: medium;
+  } 
+   ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
+    background-color: white !important;
+  }
+ ::ng-deep .mat-form-field-ripple{
+    background-color: white !important;
+  }
+ ::ng-deep .mat-input-element{
+    caret-color: white;
+ }
+ .search{
+     padding-left: 4px;
+ }
+ #click{
+      position: absolute;
+      top: 28px;
+      left:25rem;
+      color: white;
+ } 
+#click:hover{
+      transform: scale(1.2);
+      cursor: pointer;
+ }
+ ::ng-deep .btn-back span.mat-button-wrapper{
+    background-color: teal;
+    padding: 8px;
+   border-radius: 6%;
+}

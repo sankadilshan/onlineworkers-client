@@ -5,7 +5,7 @@ mat-sidenav-container{
     position: absolute;
     top: 13rem;
     left: 1rem;
-    border-radius: 10px;
+    border-radius: 4px;
 }
 mat-sidenav, mat-sidenav-content{
     padding:8px
@@ -14,7 +14,7 @@ mat-sidenav, mat-sidenav-content{
  margin-left: 193px;
 } */
 mat-sidenav{
-    border-radius: 10px 10px;
+    border-radius: 4px 4px;
     width: 210px;
     color: white;
 } 
@@ -30,4 +30,9 @@ mat-sidenav button:hover{
 .mat-raised-button{
     height: 0rem;
     color: turquoise;
+}
+::ng-deep .btn-back span.mat-button-wrapper{
+    background-color: teal;
+    padding: 4px;
+   border-radius: 15%;
 }

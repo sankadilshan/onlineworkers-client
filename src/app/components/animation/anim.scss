@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Arapey');
+
+body {
+  margin: 0;
+  font-family: 'Arapey';
+  
+  h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 30%;
+  }
+}
+
+section {
+  padding: 3em;
+  height: 89vh;
+  position: relative;
+  box-sizing: border-box;
+  
+  blockquote {
+    font-size: 2.3em;
+    width: 30%;
+    margin-top: 7%;
+   
+    span {
+      width: 100%;
+      background: red;
+      display: block;
+      height: 5px;
+      margin-top: 20px;
+    }
+  }
+  #b1{
+    position: absolute;
+    top: 0rem;
+  }
+  #b2{
+    position: absolute;
+    top:16rem;
+    left: 50rem;
+    font-size: 25px;
+    color: cornflowerblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  #b3{
+    position: absolute;
+    top:22rem;
+    left: 20rem;
+    font-size: 25px;
+    color: cornflowerblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ 
+  }
+  
+  img {
+    position: absolute;
+  }
+  
+  img:nth-of-type(1) {
+    width: 40%;
+    right: 0;
+    top: 7%;
+  }
+  img:nth-of-type(2) {
+    width: 25%;
+    right: 40%;
+    top: 29%;
+    margin-top: 11%;
+  }
+  img:nth-of-type(3){
+    width: 25%;
+    right: 40%;
+    top: 22%;
+    left: 15%;
+    margin-top: 10%;
+  }
+}
+section:nth-child(odd) {
+  background: #f2f2f2;
+}
+.sticky {
+  background: #197074 !important;
+  color: white;
+}
+
+.percentage {
+  position: absolute;
+  bottom: 10px;
+  left: 10px; 
+}
+
+#box {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  border: 5px solid lightgray;
+  margin: auto;
+  top: 0; left: 0; bottom: 0; right: 0;
+} 

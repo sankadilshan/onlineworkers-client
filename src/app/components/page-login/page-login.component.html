@@ -1,5 +1,5 @@
 <div class="background">
-    <img src="../assets/img/login-final.jpg" id="back-login" alt="login-background-image">
+    <img src="../assets/img/12.jpg" id="back-login" alt="login-background-image">
     <div id="form">
         <div class="form-contain">
             <mat-card class="l1">
@@ -21,13 +21,14 @@
                                         [type]="hide ? 'password':'text'" placeholder="password">
                                     <mat-icon matSuffix (click)="hide = !hide" [attr.aria-label]="'hide password'"
                                         [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                                    
+                                        <mat-error>password required</mat-error> 
                                     </mat-form-field>
                             </div>
+                            <br>
                             <div>
                                 <button mat-button type="submit" mat-raised-button color="accent"
-                                    [disabled]="!loginForm.valid">Sign in</button><br><br>
-                                    <span style="color: white;">Not a member?&nbsp;&nbsp;<a hrf="" (click)="openRegister()">Sign up</a></span>
+                                    [disabled]="!loginForm.valid" name="sign-in">Sign in</button><br><br>
+                                    <span style="color: white;">Not a member?&nbsp;&nbsp;<a hrf="" (click)="openRegister()" name="sign-up">Sign up</a></span>
                             </div>
                         </form>
                     </div>
@@ -57,3 +58,4 @@
         <app-footer></app-footer>
     </section>
 </div>
+<notifier-container></notifier-container>

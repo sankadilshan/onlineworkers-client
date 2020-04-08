@@ -1,14 +1,14 @@
 export class UserInfo{
-    fullname:string;
+    fullName:string;
     address:string;
     city:string;
     district:string
     description:string
-    area:string
+    jobArea:string
     experiance:string
 
    public setFullname(fullname:string){
-         this.fullname=fullname;
+         this.fullName=fullname;
    }
    public setAddress(address:string){
     this.address=address;
@@ -23,7 +23,7 @@ export class UserInfo{
        this.description=description
    }
    public setArea(area:string){
-       this.area=area
+       this.jobArea=area
    }
    public setExperiance(exp:string){
        this.experiance=exp;

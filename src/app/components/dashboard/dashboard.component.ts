@@ -34,12 +34,15 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
       this._socialService.getAllComments().subscribe(data=>{
         this.ccount=data['allTotalElement']
-        console.log(data);
-        console.log(data['allTotalElement']);
+        console.log('co',data);
+        console.log('co',data['allTotalElement']);
       })
       this._socialService.getAllMembers().subscribe(data=>{
-          this.lcount=data;
-          console.log(data)
+          this.mcount=data;
+          console.log('m',data)
+      })
+      this._socialService.getAllLikes().subscribe(data=>{
+         this.lcount=data;
       })
       
   }

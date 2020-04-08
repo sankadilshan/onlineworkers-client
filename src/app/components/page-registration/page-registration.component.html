@@ -4,24 +4,25 @@
             <mat-card-header>
                 <mat-card-title>Sign up</mat-card-title>
             </mat-card-header>
+           
             <mat-card-content>
                 <form [formGroup]="registerForm" (ngSubmit)="registerForm.valid && onSubmitRegister()" novalidate>
                     <div>
                         <mat-form-field style=" width: 20rem;" class="mat-headline" appearance="legacy">
                             <mat-label>Username</mat-label>
-                            <input id="name" matInput formControlName="username" [(ngModel)]="user.username"
+                            <input id="name" name="username" matInput formControlName="username" [(ngModel)]="user.username"
                                 placeholder="username">
                         </mat-form-field>
                     </div>
                     <div>
                         <mat-form-field style=" width: 20rem;" appearance="legacy">
                              <mat-label>Password</mat-label>
-                            <input id="password" matInput formControlName="password" [(ngModel)]="user.password"
+                            <input id="password" name="password" matInput formControlName="password" [(ngModel)]="user.password"
                                 [type]="hide ? 'password':'text'" placeholder="password">
                             <mat-icon matSuffix (click)="hide = !hide" [attr.aria-label]="'hide password'"
                                 [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                             <mat-hint>(password with length between 6-16)</mat-hint>
-                        </mat-form-field>
+                        </mat-form-field> 
                     </div>
                     <div>
                         <mat-form-field style=" width: 20rem;" appearance="legacy">
@@ -33,15 +34,24 @@
                     <div>
                         <mat-form-field style=" width: 20rem;" appearance="legacy">
                             <mat-label>Contact No.</mat-label>
-                            <input  id="contact" matInput formControlName="contact" [(ngModel)]="user.contact"
+                            <input  id="contact" matInput formControlName="contactNo" [(ngModel)]="user.contactNo"
                                 placeholder="contact">
                             <mat-hint>(valid contact 071-0/077-6/072)</mat-hint>
                         </mat-form-field>
                     </div>
+                    <div>
+                        <mat-form-field style=" width: 20rem;" appearance="legacy">
+                            <mat-label>Role</mat-label>
+                            <mat-select formControlName="role">
+                                <mat-option value="customer">customer (find your worker)</mat-option>
+                                <mat-option value="worker">worker (work for customer)</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>        
                     <br>
                     <div>
                         <button mat-button type="submit" mat-raised-button color="accent"
-                            [disabled]="!registerForm.valid" [mat-dialog-close]="registerForm" cdkFocusInitial>Sign
+                            [disabled]="!registerForm.valid" [mat-dialog-close]="registerForm" name="sign-up" >Sign
                             up</button>
                     </div>
                 </form>

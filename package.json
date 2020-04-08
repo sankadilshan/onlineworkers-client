@@ -29,6 +29,7 @@
     "angular-notifier": "^6.0.1",
     "hammerjs": "^2.0.8",
     "immutable": "^4.0.0-rc.12",
+    "jquery": "^3.4.1",
     "mat-video": "^2.7.2",
     "ng-simple-slideshow": "^1.2.9",
     "ng-slideshow": "^0.8.2",

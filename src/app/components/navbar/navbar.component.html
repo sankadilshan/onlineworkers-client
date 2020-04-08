@@ -9,7 +9,7 @@
             </button>
         </span>
            <span> <button mat-button [matMenuTriggerFor]="district">District</button></span>
-           <span><button mat-button>Recenly posted</button></span>
+           <span><button mat-button [routerLink]="['profile']">Recenly posted</button></span>
    </div>
    <mat-menu #district="matMenu" >
        <div class="menuitems" *ngFor="let district of districts">

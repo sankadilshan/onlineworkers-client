@@ -27,7 +27,12 @@
               "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/js/custom.js",
+              "src/assets/js/anim.js",
+              "src/assets/js/middle_anim.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -91,8 +96,8 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
-              "src/styles.css",
-              "src/spinner.scss"
+              "src/styles.css"
+             
             ],
             "scripts": []
           }

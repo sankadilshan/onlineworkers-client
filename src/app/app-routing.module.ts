@@ -9,23 +9,62 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { AnimationComponent } from './components/animation/animation.component';
+import { PageLoginMiddleComponent } from './components/page-login-middle/page-login-middle.component';
 
 
 const routes: Routes = [
-   {path:'', component:DashboardComponent, pathMatch:'full'},
-   {path:'home', component: PageHomeComponent},
-   {path: 'register',component: PageRegistrationComponent},
-   {path: 'login', component:PageLoginComponent},
-   {path:'nav', component: NavbarComponent},
-   {path:'footer', component:FooterComponent},
-   {path: 'profile',component:UserProfileComponent},
-   {path:'sidenav',component:SidenavComponent},
-   {path: '**', component: NotfoundcomponentComponent},
+   {
+     path:'',
+     component:DashboardComponent, 
+     pathMatch:'full'
+   },
+   {
+     path:'home/:username', 
+     component: PageHomeComponent
+   },
+   {
+     path: 'register',
+     component: PageRegistrationComponent
+   },
+   {
+     path: 'login', 
+     component:PageLoginComponent
+   },
+   {
+     path:'nav', 
+     component: NavbarComponent
+   },
+   {
+     path:'footer', 
+     component:FooterComponent
+    },
+   {
+     path: 'profile/:username',
+     component:UserProfileComponent
+   },
+   {
+     path:'anim',
+     component:AnimationComponent
+   },
+   {
+    path:'m',
+    component:PageLoginMiddleComponent
+  },
+   {
+     path: '**', 
+     component: NotfoundcomponentComponent
+   },
   
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{
+    enableTracing: false,
+    scrollPositionRestoration: 'top',
+    // onSameUrlNavigation: "reload"
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -11,7 +11,7 @@ import { PageLoginComponent } from './components/page-login/page-login.component
 import { NotfoundcomponentComponent } from './components/notfoundcomponent/notfoundcomponent.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule, MatInputModule, MatIconModule, MatToolbarModule, MatMenuModule, MatBadgeModule, MatTooltipModule, MatSnackBarModule, MatDialogModule, MatStepperModule, MatDatepicker, MatDatepickerModule, MatNativeDateModule, MatSidenavModule} from '@angular/material';
+import {MatButtonModule, MatInputModule, MatIconModule, MatToolbarModule, MatMenuModule, MatBadgeModule, MatTooltipModule, MatSnackBarModule, MatDialogModule, MatStepperModule, MatDatepicker, MatDatepickerModule, MatNativeDateModule, MatSidenavModule, MatSelectModule, MatExpansionModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatVideoModule} from 'mat-video';
@@ -31,6 +31,8 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatFileUploadModule } from 'angular-material-fileupload';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
+import { AnimationComponent } from './components/animation/animation.component';
 
 
 const customNotification:NotifierOptions={
@@ -48,7 +50,7 @@ const customNotification:NotifierOptions={
 },
 theme: "material",
 behaviour: {
-    autoHide:1000,
+    autoHide:3000,
     onClick: false,
     onMouseover: "pauseAutoHide",
     showDismissButton: true,
@@ -89,7 +91,9 @@ animations: {
     FooterComponent,
     CommentsComponent,
     UserProfileComponent,
-    SidenavComponent
+    SidenavComponent,
+    SearchbarComponent,
+    AnimationComponent
 
   ],
   entryComponents:[CommentsComponent,PageRegistrationComponent],
@@ -120,7 +124,9 @@ animations: {
     MatFileUploadModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSelectModule,
+    MatExpansionModule
    // SlideshowModule
   ],
   providers: [SocialService,UserinfoService],

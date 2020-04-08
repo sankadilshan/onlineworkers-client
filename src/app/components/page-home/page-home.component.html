@@ -29,7 +29,7 @@
               <div class="like">
                 <!-- need to create pipe for show  as 1M 2K -->
                 <span matBadge="{{job.likes | count}}" matBadgeOverlap="false" matBadgeColor="accent">
-                  <mat-icon>thumb_up</mat-icon>
+                  <mat-icon>favorite</mat-icon>
                 </span>
               </div>
               <div class="like">
@@ -43,7 +43,7 @@
             </div>
           </mat-card-content>
           <mat-card-actions align="end">
-            <button color="accent" mat-raised-button>more details..</button>
+            <button color="accent" mat-raised-button (click)="moreDetails(job)" >more details..</button>
           </mat-card-actions>
         </mat-card>
 

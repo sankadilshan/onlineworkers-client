@@ -424,7 +424,7 @@ textarea.mat-input-element{
      
 }
 .u-info .mat-stepper-horizontal, .mat-stepper-vertical{
-    background :-webkit-linear-gradient(left,#135a56,#000000);
+    background :-webkit-linear-gradient(right,#40a551,#0a0a0a);
     margin: 0px 0px 0px 4px;
     border-radius: 8px;
     color:white;
@@ -453,6 +453,77 @@ textarea.mat-input-element{
      width: 350px !important;
  }
  .v-s{
-     margin: 5px 0px 20px 0px;
+     margin: 5px 0px 20px -4px;
+     margin-top:263px;
  }
-  
+.middle{
+ display: inline;
+ position: relative;
+ top: 2rem;
+ left: 17rem;
+}
+.middle img{
+    width: 180px;
+    height: 130px;
+    padding: 4px;
+    border-radius: 1px 35px 35px 35px;
+}
+.middle .mat-card{
+    width: 200px;
+    float: left;
+    flex-direction: row;
+    margin-left: 1rem;
+}
+.middle .mat-icon{
+    color: red;
+    font-size: 20px;
+}
+h4{
+    color: teal;
+    text-decoration: underline;
+    padding-left: 4rem;
+}
+.middle mat-card:hover{
+    transform: scale(1.1);
+    border: 0.5px solid teal;
+}
+
+.ex-panel{
+    position: relative;
+    top:278px;
+    padding: 1rem 0rem 1rem 11rem;
+    z-index: 1;
+    background: -webkit-linear-gradient(right,#2b3e61c7,#0a0a0a);
+}
+.h-color{
+    color: teal;
+    position: relative;
+    top: 20rem;
+    left: -45rem;
+}
+.ex-panel .mat-expansion-panel{
+    margin-bottom: 10px;
+    background-color: white;
+    color: teal; 
+    width: 60rem;    
+} 
+.mat-expansion-indicator::after, 
+.mat-expansion-panel-header-description,
+.mat-expansion-panel-header-title,
+::ng-deep .mat-expansion-indicator::after{
+    color:teal;
+}
+.mat-action-row{
+    background: teal;
+    color: white;
+    height: fit-content;
+    display: flow-root !important;
+    padding: 20px 10px 20px 20px;
+} 
+.num{
+    margin-left: 0rem;
+}
+.mid-anim{
+    position: relative;
+    top:21rem;
+}

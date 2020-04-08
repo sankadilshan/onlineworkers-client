@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Count } from '../models/count';
+import { UrlService } from '../url/url.service';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,23 +9,20 @@ import { Observable } from 'rxjs';
 })
 export class SocialService {
 
-  constructor(private _http:HttpClient) { }
-  url='http://localhost:8082/page'
-  _social_url='http://localhost:8083'
-  profile_url='http://localhost:8081/customer'
-
+  constructor(private _http:HttpClient, private _urlService:UrlService) { }
+ 
   getPage(){
-   return this._http.get(this.url+'/health',{responseType:'text'});
+   return this._http.get(""+'/health',{responseType:'text'});
   }
   getAll(){
-   return this._http.get(this.url,{responseType:'json'})
+   return this._http.get("",{responseType:'json'})
   }
   getPages(ps:any,pn:any,sb:any){
   let params={
      pageSize:ps,
      pageNumber:pn,
      sortBy:sb}
-   return this._http.get(this.url+'/page',{params})
+   return this._http.get(""+'/page',{params})
   }
   getDetails(){
     return this._http.get('../../assets/mock-data/job-data.json',{responseType:'json'})
@@ -35,22 +33,27 @@ export class SocialService {
       pageNumber:pn,
       sortBy:sb
     }
-    return this._http.get(this.url+'/address/'+address,{params}).subscribe(
+    return this._http.get(""+'/address/'+address,{params}).subscribe(
       data=>{console.log('address',data)}
     )
   }
   getAllComments(){
-    return this._http.get(this._social_url+'/comments');
+    return this._http.get(this._urlService.onlineWorkers.socialService.body.getcomments);
    
   }
   getAllMembers(){
-    return this._http.get(this._social_url+"/members");
+    return this._http.get(this._urlService.onlineWorkers.profileService.body.members);
       
   }
-  getCount():Observable<Count[]>{
-    return this._http.get<Count[]>(this._social_url+'/count')
+  getAllLikes(){
+    return this._http.get(this._urlService.onlineWorkers.socialService.body.getlikes)
   }
-  getUserCount(userid:number):Observable<Count>{
-    return this._http.get<Count>(this._social_url+"/profileOwnerId/"+userid+"/count")
+  getUserCount(id:any){
+    return null
   }
+  getCount(){
+    return undefined;
+  }
+
+ 
 }

@@ -1,7 +1,8 @@
 export class Register{
-    username:String; //email
-    password:String;
-    email:String;
-    contact:Number;
+    username: string; //email
+    password: string;
+    email: string;
+    contactNo:string;
+    role: string
    
 }

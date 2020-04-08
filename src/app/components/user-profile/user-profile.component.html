@@ -86,7 +86,7 @@
               <form [formGroup]="replyForm" (ngSubmit)="saveReply()">
                 <mat-form-field style="width:265px">
                   <mat-label color="accent">reply on me </mat-label>
-                  <textarea matInput id="reply" formControlName="reply" [(ngModel)]="reply"></textarea>
+                  <textarea matInput  formControlName="reply" [(ngModel)]="reply"></textarea>
                 </mat-form-field>
                 <button mat-button mat-raised-button type="submit" class="c-btn">+ add</button>
               </form>
@@ -140,14 +140,14 @@
   </div>
   <div><img class="back-middle-img" src="../assets/img/pic2.jpg" alt="back-middleimg"></div>
   <div class="u-info">
-    <div #post>
+    <div #pos>
       <mat-horizontal-stepper linear #hstepper>
         <mat-step [stepControl]="userInfoForm1">
           <form [formGroup]="userInfoForm1" (ngSubmit)="userInfoForm1.valid && onSubmitUserDetails()" novalidate>
             <ng-template matStepLabel>fill out your persional details </ng-template>
             <mat-form-field style="width: 350px;">
               <mat-label>Fullname</mat-label>
-              <input matInput formControlName="fullname" style="width: 350px;" placeholder="first name, last name"
+              <input matInput formControlName="fullName" style="width: 350px;" placeholder="first name, last name"
                 required>
             </mat-form-field> <br>
             <mat-form-field style="width: 350px;">
@@ -178,7 +178,7 @@
             </mat-form-field> <br>
             <mat-form-field style="width: 350px;">
               <mat-label>Area(job)</mat-label>
-              <input matInput formControlName="userarea" style="width: 350px;" placeholder="your job area " required>
+              <input matInput formControlName="userArea" style="width: 350px;" placeholder="your job area " required>
               <mat-hint>(Ex: carpenter, plumber, teller, ...)</mat-hint>
             </mat-form-field>
             <div>
@@ -189,6 +189,7 @@
         </mat-step>
         <mat-step [stepControl]="userInfoForm3">
           <form [formGroup]="userInfoForm3" (ngSubmit)="userInfoForm3.valid && onSubmitUserExperiance()" novalidate>
+            <ng-template matStepLabel>experiances</ng-template>
             <mat-form-field style="width: 350px;">
               <mat-label>your experiances</mat-label>
               <textarea matInput id="experiance" formControlName="experiance" style="width: 350px;"
@@ -212,11 +213,54 @@
         </mat-step>
       </mat-horizontal-stepper>
     </div>
-    <div class="v-s">
+<!-- middle 3 post -->
+    <br>
+    <h4>most reached</h4>
+    <div class="middle">
+      
+       <mat-card *ngFor="let p of jobDiscription | slice:0:3" >
+        <mat-card-header>
+          <mat-card-title>{{p.title}}</mat-card-title> <br>
+          <mat-card-subtitle style="color:teal;">{{p.created_date}} <br><mat-icon>favorite_border</mat-icon>{{likes | count}} &nbsp;&nbsp;&nbsp; <mat-icon>comments</mat-icon>&nbsp;&nbsp;{{comments | count}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content style="color: teal; font-size: 13px;">
+          <img src="../assets/img/avator.jpeg" alt="card image">
+          {{p.description}}
+        </mat-card-content>
+       </mat-card>
+    </div>
+    <br>
+    <section class="mid-anim">
+      <app-animation></app-animation>
+    </section>
+    <!-- experiances -->
+    <br> 
+    <div class="h-color">
+      <b>Total Experiances:</b>&nbsp;{{exp_len}} 
+     </div>
+     <br>
+    <div class="ex-panel">
+    
+      <mat-expansion-panel *ngFor="let e of exp | slice:0:4 ;let i = index ">
+        <mat-expansion-panel-header>
+          <mat-panel-title>My Experiances: </mat-panel-title>
+          <mat-panel-description><b>Job Area:&nbsp;{{e.jobArea}}</b></mat-panel-description>
+          <mat-panel-description>Date:&nbsp; {{e.date}}</mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-action-row>
+        <span matBadge="{{i+1}}" matBadgeColor="primary" class="num"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{e.experiance | titlecase}} 
+        </mat-action-row>
+        <mat-action-row>
+           data from werew werwerzxxvcv vsdvsdvsdv
+        </mat-action-row>
+      </mat-expansion-panel>
+    </div>
+    <br>
+    <div class="v-s" #post>
       <mat-vertical-stepper linear #vstepper>
         <mat-step [stepControl]="jobForm1">
           <form [formGroup]="jobForm1" (ngSubmit)="jobForm1.valid && onSubmitJobForm1()" novalidate>
-            <ng-template matStepLabel>crete new post </ng-template>
+            <ng-template matStepLabel>create new post </ng-template>
             <mat-form-field style="width: 350px;">
               <mat-label>Job Title</mat-label>
               <input matInput formControlName="jobtitle" style="width: 350px;" placeholder="carpenter, data entry, driver, ..."
@@ -276,6 +320,7 @@
   </div>
   <app-footer></app-footer>
   <app-sidenav></app-sidenav>
+  <app-searchbar></app-searchbar>
 </div>
 
 

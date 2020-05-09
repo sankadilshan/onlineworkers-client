@@ -35,4 +35,15 @@ f-container> *{
     width:40px;
     height:40px; 
  }
- 
+ .page-control /deep/ .ngx-pagination .current{
+    background: #30763b;
+    border-radius: 12%;
+    font-size: x-large;
+    
+}
+.page-control /deep/ .ngx-pagination a{
+    outline-color: #40a551bf;
+}
+.page-control /deep/ .ngx-pagination a:hover{
+    background-color: transparent;
+}

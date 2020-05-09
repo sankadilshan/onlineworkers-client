@@ -1,1 +1,12 @@
 <p>notfoundcomponent works!</p>
+<div>
+    <div>
+        <blockquote>hello world i wnat to animate</blockquote>
+    </div>
+</div>
+<button (click)="toggle()">show/hide</button>
+<div [@listAnimation]="items.length">
+ <div *ngFor="let i of items">
+     {{i}}
+ </div>
+</div>

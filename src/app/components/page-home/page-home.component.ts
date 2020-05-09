@@ -1,22 +1,35 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit} from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ScrollToService } from 'ng2-scroll-to-el';
 import { NotifierService } from 'angular-notifier';
-import { Timestamp } from 'rxjs/internal/operators/timestamp';
 import { SocialService } from 'src/app/service/social.service';
 import { UserinfoService } from 'src/app/service/userinfo.service';
-import { Count } from 'src/app/models/count';
+import { trigger, transition, query, style, stagger, keyframes, animate } from '@angular/animations';
+import { async } from '@angular/core/testing';
+import { filter } from 'rxjs/operators';
 
-interface ctype {
-  likes: number,
-  comments: number
-}
+const CACHE_KEY="JOB_DATA"
 @Component({
   selector: 'app-page-home',
   templateUrl: './page-home.component.html',
-  styleUrls: ['./page-home.component.css', './spinner.scss']
+  styleUrls: ['./page-home.component.css', './spinner.scss'],
+  animations:[
+     trigger('animation',[
+       transition('*=>*',[
+           query(':enter',style({opacity:0}), {optional:true}),
+           query(':enter',stagger('300ms',[
+             animate('1s ease-in',keyframes([
+               style({opacity:0,transform:'translateX(-200px)',offset:0}),
+               style({opacity:0.5,transform:'translateX(-100px)',offset:0.5}),
+               style({opacity:1,transform:'translateX(0)',offset:1})
+             ]))
+           ]),{optional:true})   
+       ])
+     ])
+  ]
 })
 export class PageHomeComponent implements OnInit {
+  isClick=false
   title = "Carpentor"
   name = "Nihal Perera"
   likes = 20003
@@ -31,27 +44,41 @@ export class PageHomeComponent implements OnInit {
   count;
   data: Array<any>
   load = false;
+  n:number
+  v:any;
   //need to use summary pipe for this
   description = "Hello im a carpentor and i find a job. I have more experiance about this job and i do it since 2010"
 
   constructor(private _socialService: SocialService,
     private _userInfoService: UserinfoService,
-    private _router: Router,
     private _scrollService: ScrollToService,
     private _notifier: NotifierService,
+    private _activatedRoute:ActivatedRoute
   ) { }
 
-  ngOnInit() {
+ngOnInit() {
 
+    this._activatedRoute.queryParamMap.subscribe(async params=>{
+      await this.delay(2000)
+      let filteredCategeory = JSON.parse(params.get('filteredCategeory'))
+      let filteredDistrict = JSON.parse(params.get('filteredDistricts'))
+      if(filteredCategeory){ this.filterNotify(filteredCategeory)}
+      if(filteredDistrict){this.filterNotify(filteredDistrict) }
+
+    })
+   
     this._socialService.getDetails().subscribe((data: any) => {
-      console.log('data', data["jobDic"]);
+      
+       console.log('data', data["jobDic"]);
       this.jobDiscription = data["jobDic"]
+      localStorage[CACHE_KEY] =JSON.stringify(data['jobDic'])
       this.load = true
-
+      
     },
       (error: any) => {
         console.log('error', error.message)
       })
+  
     //user info
     this._userInfoService.getUserinfo().subscribe((data: any) => {
       data.forEach((res) => {
@@ -69,21 +96,31 @@ export class PageHomeComponent implements OnInit {
     //like comment
     this._socialService.getCount()
 
-    this.showNotification()
+    // this.showNotification()
     this._socialService.getByCategeory('alawwa', 5, 0, "");
 
-
+   
   }
 
-  getChildEmitMessage(msg: string) {
-    console.log('emit message ', msg)
-    this._socialService.getByCategeory(msg, 5, 0, "");
-  }
-  //about
-  routingAboutbtn(value) {
-    console.log(value)
-    this._scrollService.scrollTo(value)
-  }
+   getFilteresDistrict(value: string) {}
+  //   console.log('emit message district-home ', value)
+  //  let cache=JSON.parse(localStorage.getItem(CACHE_KEY))
+  //  let district = cache.filter(function(ca){
+  //     return ca.district==value;
+  //  })
+  //  this.jobDiscription=district;
+  //  console.log('district',district)
+  // }
+  //emitFilterdData=>
+   getFilteredCategeory(value:string) {}
+  //   this.v=value;
+  //   console.log('emitfilterdata-home',value)
+  //   let cache=JSON.parse(localStorage.getItem(CACHE_KEY))
+  //   let categeory=<Array<any>>cache.filter(function(categeory){
+  //     return categeory.title==value.toLocaleLowerCase()
+  //   })
+    // this.filterNotify(categeory)
+// }
   //scrolling
   scroll(element) {
     this._scrollService.scrollTo(element, 700, -100)
@@ -124,6 +161,30 @@ export class PageHomeComponent implements OnInit {
     //  this._router.navigate(['profile'])
   }
 
+ liking(i:number){
+   this.isClick=!this.isClick
+   console.log(this.isClick)
+   console.log(i)
+   this.n=i;
+   if(i==1){
+     console.log(i)
+   }
+ }
 
+ private delay(ms: number)
+{
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+ 
+private filterNotify(data:any){
+  if(data.length>0 && data.length !=null && data !=null){
+    this.jobDiscription = data;
+    this.load=true
+    this._notifier.notify('success','Total post:'+data.length)   
+  }else{
+    this._notifier.notify('info','No post available.')
+    this.jobDiscription =new Array<any>()
+  }
+}
 
 }

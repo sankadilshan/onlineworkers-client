@@ -8,7 +8,10 @@ mat-toolbar{
 }
 .navbar{
     justify-content: space-between;
-    padding-left: 4em;;
+    padding-left: 4em;
+    width: 85rem;
+    position: fixed;
+    z-index: 1001;
 }
 #onlineWork{
     z-index: 1;
@@ -148,8 +151,8 @@ div .mat-card-header-text{
     word-break: keep-all;
 }
 ::ng-deep .account{
-    width:22rem;
-    height: 28rem;
+    width:20rem;
+    height: 25rem;
    position: absolute;
    left:-310px;
     
@@ -158,7 +161,7 @@ div .mat-card-header-text{
     margin-right: -7em;
 }
 ::ng-deep .account .mat-card{
-    width:19rem;
+    width:16rem;
     height: 22rem;
     background: teal;
     margin-left: 8px;
@@ -169,14 +172,16 @@ div .mat-card-header-text{
     background-color: white;
     color: rgba(36, 97, 51, 0.77);
     position:absolute;
-    top:14rem;
+    top:20rem;
+    right: 1rem;
+    width: 15rem;
 }
 #logout-btn:hover, .field-user:hover  {
     background-color: #1cefef70;
     color:white;
 }
 .field-user{
-    background-color: #ffffff4a;
+    background-color: #588fb3a8;
     color: white;
     margin-bottom: 8px;
     min-width: -webkit-fill-available;
@@ -187,7 +192,7 @@ div .mat-card-header-text{
     margin-top:2rem;
 }
 #user-role{
-    background-color:teal;
+    background-color:transparent;
     color: white;
     border-radius: 50%;
     margin-left: 24px;
@@ -199,7 +204,8 @@ div .mat-card-header-text{
     vertical-align:middle;
 }
 #back-like{
-    margin-top: 44px;
+    margin-top: 32px;
+    margin-left: 3rem;
   
 }
 #like{

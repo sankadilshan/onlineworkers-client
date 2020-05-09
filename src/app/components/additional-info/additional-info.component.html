@@ -1,0 +1,83 @@
+<app-navbar></app-navbar>
+<div class="body">
+  <div id="clip"></div>
+    <h1>Edit your persional information</h1>
+  <div id="additionalinfo"></div>
+   <div id="formbody">
+     <div>
+      <mat-horizontal-stepper linear #hstepper>
+        <mat-step [stepControl]="userInfoForm1">
+          <form [formGroup]="userInfoForm1" (ngSubmit)="userInfoForm1.valid && onSubmitUserDetails()" novalidate>
+            <ng-template matStepLabel>fill out your persional details </ng-template>
+            <mat-form-field style="width: 350px;">
+              <mat-label>Fullname</mat-label>
+              <input matInput formControlName="fullName" style="width: 350px;" placeholder="first name, last name"
+                required>
+            </mat-form-field> <br>
+            <mat-form-field style="width: 350px;">
+              <mat-label>Address</mat-label>
+              <input matInput formControlName="address" style="width: 350px;" placeholder="address" required>
+            </mat-form-field> <br>
+            <mat-form-field style="width: 350px;">
+              <mat-label>City</mat-label>
+              <input matInput formControlName="city" style="width: 350px;" placeholder="city" required>
+            </mat-form-field><br>
+            <mat-form-field style="width: 350px;">
+              <mat-label>District</mat-label>
+              <input matInput formControlName="district" style="width: 350px;" placeholder="district" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="userInfoForm2">
+          <form [formGroup]="userInfoForm2" (ngSubmit)="userInfoForm2.valid && onSubmitUserDescribePath()" novalidate>
+            <ng-template matStepLabel>describe your path</ng-template>
+            <mat-form-field style="width: 350px;">
+              <mat-label>description(describe about you)</mat-label>
+              <textarea matInput id="description" formControlName="description" style="width: 350px;"
+                placeholder="create your description" cols="50" rows="10" required></textarea>
+              <mat-hint>make between 100-150 words</mat-hint>
+            </mat-form-field> <br>
+            <mat-form-field style="width: 350px;">
+              <mat-label>Area(job)</mat-label>
+              <input matInput formControlName="userArea" style="width: 350px;" placeholder="your job area " required>
+              <mat-hint>(Ex: carpenter, plumber, teller, ...)</mat-hint>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="userInfoForm3">
+          <form [formGroup]="userInfoForm3" (ngSubmit)="userInfoForm3.valid && onSubmitUserExperiance()" novalidate>
+            <ng-template matStepLabel>experiances</ng-template>
+            <mat-form-field style="width: 350px;">
+              <mat-label>your experiances</mat-label>
+              <textarea matInput id="experiance" formControlName="experiance" style="width: 350px;"
+                placeholder="mention your experiances" cols="50" rows="10" required></textarea>
+              <mat-hint>make between 100-150 words</mat-hint>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="submitDetails()">Submit</button>
+            <button mat-button (click)="hstepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>
+   </div>
+  
+</div>
+<app-footer></app-footer>

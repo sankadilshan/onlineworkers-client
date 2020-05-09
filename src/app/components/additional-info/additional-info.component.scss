@@ -1,0 +1,91 @@
+$color:white;
+$color_clip:#2779b3c7;
+app-navbar{
+  position:absolute;
+  top: 0rem;
+}
+.body{
+  // clip-path: polygon(100% 0,100% -43%,45% 100%,0 100%,0 0);
+  clip-path: circle(91% at 0% 0%);
+  background-color: teal;
+  height: 100rem;
+  width: 100%;
+  
+  #clip{
+    position: absolute;
+    clip-path: circle(10% at 0% 4%);
+    background: $color_clip;
+    transition: clip-path .5s ease-in-out;
+    width: 100%;
+    height: 100rem;
+  }
+
+  h1{
+    color: white;
+    padding-left: 12rem;
+    padding-top: 6rem;
+    font-size: -webkit-xxx-large;
+    z-index: 1;
+   
+  }
+
+  #additionalinfo{
+   width: 10rem;
+   height: 25rem;
+   position:absolute;
+   top:20rem;
+   background:$color;
+   margin-left: 6px;
+   z-index: 1;
+  }
+
+  #formbody{
+    width: 64rem;
+    height: 55rem;
+    background:$color;
+    border-radius: 6px;
+    margin-left: 19rem;
+    position: absolute;
+    top: 20rem;
+    padding-top: 16px;
+    z-index: 1;
+
+   .mat-stepper-horizontal, .mat-stepper-vertical{
+      background :-webkit-linear-gradient(right,#40a551,#0a0a0a);
+      margin: 0px 0px 0px -71px;
+      border-radius: 8px;
+      color:white;
+      padding-left: 50px
+  } 
+   ::ng-deep .mat-form-field.mat-focused .mat-form-field-label{
+      color:white !important;
+      font-size: medium;
+    } 
+   ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
+      background-color: white !important;
+    }
+   ::ng-deep .mat-form-field-ripple{
+      background-color: white !important;
+    }
+   ::ng-deep .mat-input-element{
+      caret-color: white;
+    } 
+   ::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit{
+        background-color: teal;
+    }
+   ::ng-deep .mat-step-header .mat-step-icon-state-edit{
+        background-color: turquoise;
+    }
+    .mat-form-field-infix{
+       width: 350px !important;
+   }
+  
+    
+  }
+
+  &:hover #clip{
+    clip-path: circle(96% at 0% 0%);
+    background: $color_clip;
+  }
+}
+ 

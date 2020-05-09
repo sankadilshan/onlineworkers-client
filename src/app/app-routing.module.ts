@@ -8,10 +8,10 @@ import { PageHomeComponent } from './components/page-home/page-home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { AnimationComponent } from './components/animation/animation.component';
 import { PageLoginMiddleComponent } from './components/page-login-middle/page-login-middle.component';
+import { PostShowComponent } from './components/post-show/post-show.component';
+import { AdditionalInfoComponent } from './components/additional-info/additional-info.component';
 
 
 const routes: Routes = [
@@ -24,6 +24,10 @@ const routes: Routes = [
      path:'home/:username', 
      component: PageHomeComponent
    },
+   {
+    path:'post', 
+    component: PostShowComponent
+  },
    {
      path: 'register',
      component: PageRegistrationComponent
@@ -44,14 +48,14 @@ const routes: Routes = [
      path: 'profile/:username',
      component:UserProfileComponent
    },
-   {
-     path:'anim',
-     component:AnimationComponent
-   },
-   {
-    path:'m',
-    component:PageLoginMiddleComponent
-  },
+    {
+      path:'info',
+      component:AdditionalInfoComponent
+    },
+    {
+      path:'anim',
+      component:AnimationComponent
+    },
    {
      path: '**', 
      component: NotfoundcomponentComponent
@@ -62,7 +66,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes,{
     enableTracing: false,
-    scrollPositionRestoration: 'top',
+    scrollPositionRestoration: 'enabled',
     // onSameUrlNavigation: "reload"
   })],
   exports: [RouterModule]

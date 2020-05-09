@@ -15,7 +15,8 @@ onlineWorkers={
       register:"http://localhost:8082/register",
       login:"http://localhost:8082/login",
       members:"http://localhost:8082/members",
-      postUserInfo:"http://localhost:8082/user-info/"
+      postUserInfo:"http://localhost:8082/user-info/",
+      picUpload:"http://localhost:8082/user-info/pic/"
     }
   },
   socialService:{

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 //import {SlideshowModule} from 'ng-slideshow';
 
 
@@ -20,7 +20,7 @@ import { PageHomeComponent } from './components/page-home/page-home.component';
 import { NavbarComponent } from './components/navbar/navbar.component'
 import { CounterPipe } from './custom-pipe/counter.pipe';
 import { FooterComponent } from './components/footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {ScrollToModule} from 'ng2-scroll-to-el';
 import {NotifierModule,NotifierOptions} from 'angular-notifier';
@@ -33,6 +33,11 @@ import { MatFileUploadModule } from 'angular-material-fileupload';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { AnimationComponent } from './components/animation/animation.component';
+import { PostShowComponent } from './components/post-show/post-show.component';
+import { SafeHtml } from './custom-pipe/sanitize.pipe';
+import { HttpErrorInterceptor } from './ex-handle/http-error.interceptor';
+import { AdditionalInfoComponent } from './components/additional-info/additional-info.component';
+
 
 
 const customNotification:NotifierOptions={
@@ -87,13 +92,18 @@ animations: {
     PageLoginMiddleComponent,
     PageHomeComponent,
     NavbarComponent,
+
     CounterPipe,
+    SafeHtml,
+
     FooterComponent,
     CommentsComponent,
     UserProfileComponent,
     SidenavComponent,
     SearchbarComponent,
-    AnimationComponent
+    AnimationComponent,
+    PostShowComponent,
+    AdditionalInfoComponent
 
   ],
   entryComponents:[CommentsComponent,PageRegistrationComponent],
@@ -129,7 +139,7 @@ animations: {
     MatExpansionModule
    // SlideshowModule
   ],
-  providers: [SocialService,UserinfoService],
+  providers: [SocialService,UserinfoService,{provide:HTTP_INTERCEPTORS,useClass: HttpErrorInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

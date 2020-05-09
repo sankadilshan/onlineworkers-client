@@ -3,9 +3,7 @@
    <!-- need to add favicon -->
    <div class="type" >
           <span>
-               <button #value (click)="clickCategeory(value)" mat-button  [matMenuTriggerFor]="categeory">Categeory
-              <mat-icon *ngIf="">chevron_right</mat-icon>
-
+               <button mat-button  [matMenuTriggerFor]="categeory">Categeory
             </button>
         </span>
            <span> <button mat-button [matMenuTriggerFor]="district">District</button></span>
@@ -13,9 +11,9 @@
    </div>
    <mat-menu #district="matMenu" >
        <div class="menuitems" *ngFor="let district of districts">
-       <button mat-menu-item>
+       <button mat-menu-item (click)="getDistrict(district)">
            <mat-icon >place</mat-icon>
-           <div id="d"  (click)="getDistrict(district)">{{district}}</div>
+           <div id="d">{{district}}</div>
        </button>
       </div>
    </mat-menu>
@@ -24,33 +22,35 @@
         <mat-card>
         <img mat-card-avatar  src="../assets/img/avator.jpeg" alt="item1">
             <mat-card-header id="categeory">
-                <mat-card-title >{{c.title}}</mat-card-title> <br>
-                <mat-card-subtitle>{{c.description}}</mat-card-subtitle>  
+                <div (click)="getCategeory(c.title)">
+                <mat-card-title >{{c.title}}</mat-card-title>
+                <mat-card-subtitle>{{c.description}}</mat-card-subtitle>
+                </div>
             </mat-card-header>
         </mat-card>
        </div>
    </mat-menu>
    <div id="nav-left">
     <span ><button mat-button [scrollTo]="about">About us</button></span>
-    <span> <button id="user-role" mat-button [matMenuTriggerFor]="user"><b>{{user1 | slice:0:1 }}</b></button></span>
+    <span> <button id="user-role" mat-button [matMenuTriggerFor]="user">
+        <img mat-card-avatar [src]="_pavatar" alt="ppic"></button>
+    </span>
    </div>
 
    <mat-menu class="account"  #user="matMenu" >
-    <!-- <img src="../assets/img/avator.jpeg" alt="item1"> -->
-     <!-- <div id="d">{{c.title}} -{{c.description}} </div> -->
     <mat-card>
         <mat-card-header>
-            <mat-card-title ><b color="accent"><i>{{user1}}</i></b>-username</mat-card-title>
-
+            <img mat-card-avatar [src]="_pavatar" alt="ppic">
+            <mat-card-title style="color: white; position: relative; top: 3px;">{{user1 | titlecase}}</mat-card-title>
         </mat-card-header>
         <mat-card-content id="field-user">
-           <button class="field-user" mat-button><mat-icon class="nav-i">account_circle</mat-icon>&nbsp;&nbsp;Account</button>
-           <button class="field-user" mat-button><mat-icon class="nav-i">add</mat-icon>&nbsp;&nbsp;create post</button>
-           <button class="field-user" mat-button><mat-icon class="nav-i">notes</mat-icon>&nbsp;&nbsp;additional information</button>
-           <div id="back-like">
+           <button class="field-user" mat-button><mat-icon class="nav-i" (click)="clickAcc()">account_circle</mat-icon>&nbsp;&nbsp;My Account</button>
+           <button class="field-user" mat-button><mat-icon class="nav-i" (click)="clickAdditionalInformation()">notes</mat-icon>&nbsp;&nbsp;additional information</button>
+           <button class="field-user" mat-button><mat-icon class="nav-i" (click)="clickCreatePost()">add</mat-icon>&nbsp;&nbsp;create post</button>
+            <div id="back-like">
             <span><mat-icon id="user-icon">thumb_up</mat-icon></span>
            <button id="like" mat-button
-                matTooltip="your account likes"
+                matTooltip="your likes"
                 matTooltipShowDelay="500"
                 matTooltipPosition="above"
                 matTooltipHideDelay="5000"

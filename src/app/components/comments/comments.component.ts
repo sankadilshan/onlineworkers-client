@@ -15,9 +15,11 @@ comments:any;
   ngOnInit() {
     this._socialService.getAllComments().subscribe(data=>{
       this.comments=data['result'];
+      if(data['result']!=null){
       console.log(data);
       console.log(data['allTotalElement']);
       console.log(data['result'])
+    }
     }),
     error=>{
       console.log(error);

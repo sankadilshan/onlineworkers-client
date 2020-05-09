@@ -44,11 +44,11 @@ user:Register=new Register()
   onSubmitRegister(){
     let username=this.registerForm.value['username']
     this._userInfoService.checkUsername(username).subscribe(res=>{
-    
-      if(res['jsonResponse']['status']==200){
+        let status= res.status 
+      if(status==200){
         this.error(this.registerForm.value)
      } 
-     if(res['jsonResponse']['status']==404){
+     if(status==404){
       console.log('register',this.registerForm.value)
       this._userInfoService.register(this.registerForm.value)
        .subscribe(res => console.log(res));

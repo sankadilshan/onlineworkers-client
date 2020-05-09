@@ -1,0 +1,200 @@
+.heading{
+   
+   img{
+       width: 100%;
+       height: 28rem;
+   }
+
+   #profile-pic{
+        width: 160px;
+        height: 150px;
+        background: white;
+        position: relative;
+        top: -10rem;
+        left: 4rem;
+
+        img{
+            width: 9rem;
+            height: 8rem;
+            padding: 8px;
+            border-radius: 50%;
+        }
+   }
+}
+.body{
+    position: relative;
+    top: -9rem;
+    left: 0rem;
+    height: 7rem;
+
+    pagination-controls{
+        position:absolute;
+        top: 81rem;
+        right:7rem;
+        z-index: 1;
+    }
+    #meta{
+        position: relative;
+        top: 0rem;
+        left: 1rem;
+        width:14rem;
+        height: max-content;
+        padding-bottom: 5px;
+
+        .page-control .ngx-pagination .current{
+            background: #30763b;
+            border-radius: 12%;
+            font-size: x-large;
+            
+        }
+        .page-control .ngx-pagination a{
+            outline-color: #40a551bf;
+        }
+        .page-control .ngx-pagination a:hover{
+            background-color: transparent;
+        }
+        
+        pagination-controls{
+            position:absolute;
+            top: -5rem;
+            right:-60rem;
+            z-index: 1;
+        }
+
+      #intro{
+          height: max-content;
+          .mat-card-header{
+              color: teal;
+           .mat-card-subtitle{
+               color: teal;
+               .mat-icon{
+                   color: teal;
+               }
+           }   
+          }
+         .mat-card-content{
+             height: max-content;
+             scroll-padding-bottom: 4px;
+             span{
+                 width:5px;
+                 height: 29px;
+                 display: block;
+                 background: teal;
+                 margin: 0px 0px 0px 11px;
+             }
+         } 
+      }
+    }
+    #s-post{
+       width: 65rem;
+       height: min-content;
+       padding-bottom: 0rem;
+       padding-left: 15px;
+       padding-top: 22px;
+       padding-right: 10px;
+       background: white;
+       border-radius: 4px;
+       position: absolute;
+       top: -6rem;
+       left: 16rem;
+      
+
+       .mat-card{
+           margin-bottom: 10px;
+
+           .mat-card-subtitle{
+               color: black;
+            //    margin-left: 55rem;
+           }
+
+           .mat-card-content{
+               height: min-content;
+               padding-bottom: 5px;
+
+                img{
+                   width:8rem ;
+                   height: 9rem;
+                   border-radius: 1%;
+                   transition: ease-in;
+                   margin: 4px 10px -14px 5px;
+               }
+               div{
+                   position: relative;
+                   top: -9rem;
+                   margin-left: 12rem;
+
+                span{
+                   width: 51rem;
+                   height: 2px;
+                   background-color: teal;
+                   display: block;
+                   margin-top: 2px;
+                   }
+                .mat-icon{
+                       color: teal;
+                   }
+                blockquote{
+                    width:53rem;
+                    height: 6rem;
+                    scroll-padding-bottom: 5px;
+                    margin-left:-2rem;
+                    margin-bottom: -7rem;
+                  
+                    blockquote{
+                        width: 20rem;
+                        height: 10rem;
+                        margin-top:11px;
+                        margin-left: 36rem;
+                        color: teal;
+                       
+                    }
+                } 
+
+               }
+
+             
+           }
+       }
+       
+       .spinner{
+        width:50px;
+        height:50px;
+        border-radius: 50%;
+        margin: 20rem 0 0 38rem;
+        background: #69f0ae47;
+        position: relative;
+        display: inline-block;
+        &::after,&::before{
+               content: '';
+               display:block;
+               width: 50px;
+               height: 50px;
+               border-radius: 50%;
+        } 
+    }
+    .spinner-1::after{
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      border: 2px solid transparent;
+      border-top-color: #3fa24f;
+      border-bottom-color:#1f4726 ;
+      animation: spinny 1s linear infinite;
+    }
+    
+    @keyframes spinny {
+        0% {transform: rotate(0deg) scale(1);}
+        50% {transform: rotate(90deg) scale(1.2);}
+        100% {transform: rotate(360deg) scale(1);}
+    }
+    }
+}
+.p-s{
+    position: relative;
+    top: -9rem;
+    left: -9rem;
+}
+#footer{
+    position: relative;
+    top:70rem;
+}

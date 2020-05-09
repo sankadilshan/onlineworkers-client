@@ -8,9 +8,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SocialService {
-
-  constructor(private _http:HttpClient, private _urlService:UrlService) { }
  
+  constructor(private _http:HttpClient, private _urlService:UrlService) { }
+
   getPage(){
    return this._http.get(""+'/health',{responseType:'text'});
   }
@@ -25,7 +25,7 @@ export class SocialService {
    return this._http.get(""+'/page',{params})
   }
   getDetails(){
-    return this._http.get('../../assets/mock-data/job-data.json',{responseType:'json'})
+    return this.getJobDetails()
   }
   getByCategeory(address:string,ps:any,pn:any,sb:any){
     let params={
@@ -53,7 +53,13 @@ export class SocialService {
   }
   getCount(){
     return undefined;
+  } 
+  getFilterdData(){
+    return this.getJobDetails()
+        
   }
 
- 
+   getJobDetails(){
+    return this._http.get('../../assets/mock-data/job-data.json',{responseType:'json'})
+  }
 }

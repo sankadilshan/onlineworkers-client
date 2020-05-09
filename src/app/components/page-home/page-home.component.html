@@ -1,11 +1,37 @@
 <div class="background" >
   <section class="heading" #top>
-    <app-navbar (emitMessage)="getChildEmitMessage($event)"  (emitMessage1)="routingAboutbtn($event)"></app-navbar>
-    <img id="themeimg" src="../assets/img/Section1.png" alt="theme image">
-   <!-- <button [scrollTo]="about" [scrollDuration]="1000" [scrollOffset]="-100">down</button> -->
-  </section>
+    <app-navbar (emitMessage)="getFilteresDistrict($event)"  (emitFilterdData)="getFilteredCategeory($event)"></app-navbar>
+   <div id="back-top">
+    <img id="back-t" src="../assets/img/back/back_2_vanilla.png" alt="back images"> 
+     <img id="back-c" src="../assets/img/back/back_2.png" alt="cloud image">
+     <img id="back-l" src="../assets/img/back/back_1.png" alt="lake image">
+     <blockquote @animation>Hello , This I'm <b>Online Workers</b> introduce The new pipeline to do your work by hire, Also
+          this is for earn money who like to be an earner</blockquote>
+   </div>
+  </section> 
+  <div class="introduction">
+         <h3>Introduction </h3>
+         <div id="d1"><h4>
+         <blockquote>
+          Need a Hierer,<br><br>
+          Hi all, Online Workers platform build for who need help in Online. This is most proper site 
+          find your hier, be a hier. Its can be a kind of freelanzr. 
+          DayToday world people haven't lot of time do their works, cleaning garden, cleaning house, colorwashing etc.
+          But our site have time in here have all the solution for your problems. Ok, your hirer in your hand find, select 
+          get your hierer.
+         </blockquote>
+         </h4></div>
+         <div id="d2"><h4>
+          <blockquote>
+            Looking a Job, <br><br>
+            Hi all, This is Online Workers platform and you can be a hier and get a job for you, also make money.
+            Create a post publish your skills and job area and get you job. It can be adriver, carpenter, plumber or trailer
+            Create your post and earn . This is for you.
+          </blockquote>
+         </h4></div>
+       
+  </div>
   <div class="page-control" #about>
-
 <pagination-controls (pageChange)="pageNumber=$event"></pagination-controls>
 </div>
   <div class="body">
@@ -15,12 +41,12 @@
 
                                        itemsPerPage:pageSize,
                                        currentPage:pageNumber
-                                       } ">
+                                       }; index as i ">
         <mat-card>
           <mat-card-header>
-            <mat-card-title><u>{{job.jobTitle}}</u>&nbsp;&nbsp;&nbsp;&nbsp; <span
+            <mat-card-title><u>{{job.title}}</u>&nbsp;&nbsp;&nbsp;&nbsp; <span
                 color="accent">{{job.registerDate}}</span></mat-card-title>
-            <mat-card-subtitle><i>{{job.name}}&nbsp;&nbsp;&nbsp; <span>kandy</span></i>
+            <mat-card-subtitle><i>{{job.name}}&nbsp;&nbsp;&nbsp; <span>{{job.district}}</span></i>
             </mat-card-subtitle>
           </mat-card-header>
           <mat-card-content>
@@ -29,7 +55,7 @@
               <div class="like">
                 <!-- need to create pipe for show  as 1M 2K -->
                 <span matBadge="{{job.likes | count}}" matBadgeOverlap="false" matBadgeColor="accent">
-                  <mat-icon>favorite</mat-icon>
+                 <div (click)="liking(i)"><mat-icon >favorite</mat-icon></div>
                 </span>
               </div>
               <div class="like">

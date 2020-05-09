@@ -16,7 +16,7 @@
  height: 170px;
  border-radius: 50%;
  position: absolute;
- top:285px;
+ top:203px;
  left:280px;
  z-index: 1;
 
@@ -28,7 +28,7 @@
 }
 #p-pic-camera{
     position: absolute;
-    top:26rem;
+    top:20rem;
     left: 390px;
     -webkit-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
@@ -40,7 +40,7 @@
 }
 .overlay{
     position: absolute;
-    top: 65px;
+    top: 0px;
     left: 5px;
     height: 21rem;
     width: 99.6%;
@@ -399,6 +399,9 @@ li:hover{
 #p-details1::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
     background-color: white !important;
 }
+::ng-deep .mat-expansion-panel-header-title[_ngcontent-hsk-c1]{
+    font-size: large;
+}
 textarea.mat-input-element{
     font-family: auto;
 }
@@ -491,7 +494,7 @@ h4{
 .ex-panel{
     position: relative;
     top:278px;
-    padding: 1rem 0rem 1rem 11rem;
+    padding: 1rem 0rem 1rem 4rem;
     z-index: 1;
     background: -webkit-linear-gradient(right,#2b3e61c7,#0a0a0a);
 }
@@ -505,7 +508,12 @@ h4{
     margin-bottom: 10px;
     background-color: white;
     color: teal; 
-    width: 60rem;    
+    width: 76rem;   
+    padding-top:8px;
+    font-size: 13pt;
+    padding-top:20px;
+    padding-bottom: 20px;
+    font-size: larger;
 } 
 .mat-expansion-indicator::after, 
 .mat-expansion-panel-header-description,

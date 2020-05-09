@@ -1,0 +1,26 @@
+img{
+    width: 300px;
+    height: 100px;
+    padding: 6px;
+}
+
+blockquote{
+    width: 200px;
+    height: 6rem;
+    color: wheat;
+    background: yellowgreen;
+    padding: 10px;
+    // margin: 0% 50% 0% 50%;
+}
+
+
+blockquote{
+    opacity: 0;
+   animation: timing 1s ease-in .5s 1 normal forwards;
+}
+
+@keyframes timing{
+    0%{transform:(translate(-200px,0px),scale(0)); opacity: 0;}
+    100%{transform: (translate(200px,0px),scale(1)); opacity: 1;}
+
+}

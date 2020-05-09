@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+<section class="heading">
+    <img src="../assets/img/back/birds.jpg" alt="heading image">
+    <div id="profile-pic">
+        <img [src]="_ppic" alt="profile pic">
+    </div>
+</section>
+<section class="body">
+    <div id ="meta">  
+        <pagination-controls (pageChange)="pageNumber=$event"></pagination-controls> 
+        <mat-card id="intro">
+            <mat-card-header>
+               <mat-card-title>
+                  <b> User 1</b>
+               </mat-card-title>
+             <mat-card-subtitle>
+                <mat-icon>favorite</mat-icon> 324 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <mat-icon>sms</mat-icon> 233
+             </mat-card-subtitle>  
+            </mat-card-header>
+            <mat-card-content>
+               Total Post: 12 <span></span>
+                  &nbsp;&nbsp;&nbsp;Recently:&nbsp;3 <span></span>
+                  &nbsp;&nbsp;&nbsp;Most used:&nbsp;3 <span></span>
+
+                </mat-card-content>
+        </mat-card>
+    </div>
+    <div id="s-post">
+        <div *ngIf="show else spinner">
+        <ng-container *ngFor="let p of post | paginate:{
+            itemsPerPage:pageSize,
+            currentPage:pageNumber
+        }">
+    <mat-card >
+        <mat-card-header>
+            <mat-card-title>
+              {{p.title}}
+            </mat-card-title>
+            <mat-card-subtitle>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{p.date}}
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+           <img [src]="_ppic" alt="post picture" >
+         <div>
+             <mat-icon>favorite</mat-icon> 324 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <mat-icon>sms</mat-icon> 233 <span></span>
+             <blockquote>
+                 {{p.description}}
+              <blockquote>
+                    <b> {{p.email}}  <br>
+                    {{p.contact}} <br>
+                     {{p.edate}}(ending date)</b>
+                </blockquote>
+             </blockquote>
+          </div>  
+        </mat-card-content>
+    </mat-card>
+   </ng-container>
+        </div>
+   <ng-template #spinner >
+    <div class="spinner spinner-1 p-s"></div>
+</ng-template>
+ </div>  
+ <pagination-controls (pageChange)="pageNumber=$event"></pagination-controls>  
+</section>
+<section id="footer">
+    <app-footer></app-footer>
+</section>
+
+ 

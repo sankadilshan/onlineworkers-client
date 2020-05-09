@@ -140,3 +140,27 @@ ul li{
 .social-login .mat-card-content{
   padding-top: 1rem;
 }
+.arrow{
+  position: absolute;
+  top: 27rem;
+  left: 74rem;
+  width:60px;
+  height: 60px;
+  border-radius: 50%;
+  background: teal;
+  
+ 
+}
+
+@keyframes arrow{
+   0%{top: 0px;}
+   100%{top: 100px;}
+}
+.arrow mat-icon{
+  position: absolute;
+  font-size: 45pt;
+  color: white;
+  animation: arrow 1s linear 0s infinite ;
+  animation-direction: normal;
+  animation-delay: 0s;
+}

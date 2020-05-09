@@ -2,7 +2,9 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { error } from 'protractor';
+import { Injectable } from "@angular/core";
 
+@Injectable()
 export class HttpErrorInterceptor implements HttpInterceptor{
 
     intercept(req:HttpRequest<any>, next:HttpHandler): Observable<HttpEvent<any>> {

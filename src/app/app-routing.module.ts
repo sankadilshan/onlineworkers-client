@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PageRegistrationComponent } from './components/page-registration/page-registration.component';
-import { NotfoundcomponentComponent } from './components/notfoundcomponent/notfoundcomponent.component';
+// import { NotfoundcomponentComponent } from './components/notfoundcomponent/notfoundcomponent.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PageLoginComponent } from './components/page-login/page-login.component';
 import { PageHomeComponent } from './components/page-home/page-home.component';
@@ -12,6 +11,8 @@ import { AnimationComponent } from './components/animation/animation.component';
 import { PageLoginMiddleComponent } from './components/page-login-middle/page-login-middle.component';
 import { PostShowComponent } from './components/post-show/post-show.component';
 import { AdditionalInfoComponent } from './components/additional-info/additional-info.component';
+import { PageRegistrationComponent } from './components/page-registration/page-registration.component';
+import { NotfoundcomponentComponent } from './components/notfoundcomponent/notfoundcomponent.component';
 
 
 const routes: Routes = [

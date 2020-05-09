@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageRegistrationComponent } from './components/page-registration/page-registration.component';
 import { PageLoginComponent } from './components/page-login/page-login.component';
-import { NotfoundcomponentComponent } from './components/notfoundcomponent/notfoundcomponent.component';
+// import { NotfoundcomponentComponent } from './components/notfoundcomponent/notfoundcomponent.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule, MatInputModule, MatIconModule, MatToolbarModule, MatMenuModule, MatBadgeModule, MatTooltipModule, MatSnackBarModule, MatDialogModule, MatStepperModule, MatDatepicker, MatDatepickerModule, MatNativeDateModule, MatSidenavModule, MatSelectModule, MatExpansionModule} from '@angular/material';
@@ -29,7 +29,6 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { UserinfoService } from './service/userinfo.service';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { MatFileUploadModule } from 'angular-material-fileupload';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { AnimationComponent } from './components/animation/animation.component';
@@ -45,7 +44,7 @@ const customNotification:NotifierOptions={
   position: {
     horizontal: {
         position: "right",
-        distance: 12
+        distance: 12 
     },
     vertical: {
         position: "top",
@@ -87,7 +86,7 @@ animations: {
     AppComponent,
     PageRegistrationComponent,
     PageLoginComponent,
-    NotfoundcomponentComponent,
+    // NotfoundcomponentComponent,
     DashboardComponent,
     PageLoginMiddleComponent,
     PageHomeComponent,
@@ -106,7 +105,9 @@ animations: {
     AdditionalInfoComponent
 
   ],
-  entryComponents:[CommentsComponent,PageRegistrationComponent],
+  entryComponents:[CommentsComponent,
+    // PageRegistrationComponent
+],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -130,8 +131,7 @@ animations: {
     NotifierModule.withConfig(customNotification),
     MatDialogModule,
     ScrollingModule,
-    MatStepperModule,
-    MatFileUploadModule,
+    MatStepperModule, 
     MatDatepickerModule,
     MatNativeDateModule,
     MatSidenavModule,

@@ -6,7 +6,7 @@ import { error } from 'util';
 import { SocialService } from 'src/app/service/social.service';
 import { UserinfoService } from 'src/app/service/userinfo.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog'
-import { PageRegistrationComponent } from '../page-registration/page-registration.component';
+ import { PageRegistrationComponent } from '../page-registration/page-registration.component';
 import { NotifierService } from 'angular-notifier';
 @Component({
   selector: 'app-page-login',
@@ -51,11 +51,11 @@ export class PageLoginComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true
     dialogConfig.autoFocus = true
-    //this._notifier.notify('error',"username already exist");
+    this._notifier.notify('error',"username already exist");
     this.open()
   }
   private open() {
-    this._dialog.open(PageRegistrationComponent);
+     this._dialog.open(PageRegistrationComponent);
   }
   getErrorMessage() {
 

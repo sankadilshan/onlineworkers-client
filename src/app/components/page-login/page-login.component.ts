@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { Register } from 'src/app/models/Register.model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { error } from 'util';
 import { SocialService } from 'src/app/service/social.service';
 import { UserinfoService } from 'src/app/service/userinfo.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog'
  import { PageRegistrationComponent } from '../page-registration/page-registration.component';
 import { NotifierService } from 'angular-notifier';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-page-login',
   templateUrl: './page-login.component.html',
@@ -32,9 +33,24 @@ export class PageLoginComponent implements OnInit {
     private _socialService: SocialService,
     private _userInfoService: UserinfoService,
     private _dialog: MatDialog,
-    private _notifier: NotifierService) { }
+    private _notifier: NotifierService,
+    private _activateRoute:ActivatedRoute) { }
 
   ngOnInit() {
+      this._activateRoute.queryParamMap.subscribe(
+        params=> {
+          console.log(params.get('loginError'))
+         if(params.get('loginError')){
+              this._notifier.notify('error',"please sign in")
+         }
+         console.log(params.get('logOut'))
+         if(params.get('logOut')){
+           
+           
+         }
+      }
+      )
+
 
     this.loginForm = this.formBuilder.group({
       username: [this.user.username, [Validators.required]],
@@ -51,7 +67,6 @@ export class PageLoginComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true
     dialogConfig.autoFocus = true
-    this._notifier.notify('error',"username already exist");
     this.open()
   }
   private open() {
@@ -73,21 +88,23 @@ export class PageLoginComponent implements OnInit {
 
     console.log(this.loginForm.value)
     this._userInfoService.login(this.loginForm.value).subscribe((res) => {
-      if (res['jsonResponse']['status'] == 201) {
-        console.log('res', res)
+      if (res) {
         this.login();
       }
     },
-      (error: Error) => {
-        console.log('error', error);
-        if (401 == error['status']) {
+      (error) => {
+        console.log(error.status,'====' ,error.message)
+        if(error.status == 401){
+          console.log('error msg login');
           this._notifier.notify('error', 'username or password incorrect.')
           this.loginForm.reset()
+          // this.openRegister();
         }
-        else {
+        else{
+        console.log('error msg login', error.message);
           this._notifier.notify('error', 'server error, please try again...')
           this.loginForm.reset()
-        }
+        } 
       })
   }
   private login() {

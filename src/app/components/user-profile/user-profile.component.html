@@ -48,9 +48,9 @@
       <ul>
         <li (click)="scroll(post)">create post </li>
         <li>|</li>
-        <li (click)="scroll(post)">edit profile </li>
+        <li [routerLink]="['/info/',username]" >edit profile </li>
         <li>|</li>
-        <li (click)="scroll(post)">additional info </li>
+        <li [routerLink]="['/info/',username]">additional info </li>
       </ul>
     </div>
     <div id="c-view">

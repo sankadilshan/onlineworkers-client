@@ -4,7 +4,7 @@ export class UserInfo{
     city:string;
     district:string
     description:string
-    jobArea:string
+    userArea:string
     experiance:string
 
    public setFullname(fullname:string){
@@ -23,7 +23,7 @@ export class UserInfo{
        this.description=description
    }
    public setArea(area:string){
-       this.jobArea=area
+       this.userArea=area
    }
    public setExperiance(exp:string){
        this.experiance=exp;

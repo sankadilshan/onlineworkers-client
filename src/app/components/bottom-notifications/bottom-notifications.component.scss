@@ -1,0 +1,22 @@
+div{
+    h1{
+        background: white;
+        color: teal;
+        position: static;
+        top: 1rem;
+        left: 1rem;
+        padding: 4px;
+        width: 10rem;
+    }
+    div{
+        blockquote{
+           width: 24rem;
+           height: 2rem;
+           padding: 5px;
+        }
+    }
+}
+::ng-deep .mat-bottom-sheet-container{
+ background: white;
+ color: teal;
+}

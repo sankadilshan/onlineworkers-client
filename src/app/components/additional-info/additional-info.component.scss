@@ -1,14 +1,18 @@
+@import "formstyle";
+
 $color:white;
 $color_clip:#2779b3c7;
+$background:-webkit-linear-gradient(right,#40a551,#0a0a0a);
+
 app-navbar{
   position:absolute;
   top: 0rem;
 }
 .body{
   // clip-path: polygon(100% 0,100% -43%,45% 100%,0 100%,0 0);
-  clip-path: circle(91% at 0% 0%);
+  clip-path: circle(98% at 0% 0%);
   background-color: teal;
-  height: 100rem;
+  height: 87rem;
   width: 100%;
   
   #clip{
@@ -28,15 +32,58 @@ app-navbar{
     z-index: 1;
    
   }
+  h4{
+    position: absolute;
+    top: 164px;
+    left: 15rem;
+  }
+  ul{
+    position: relative;
+    top: 2rem;
+    margin-left: 50rem;
+    li{
+      display: inline;
+      text-decoration: none;
+      font-size: 16pt;
+      margin-left: 1rem;
+      color: $color;
+
+        .mat-icon{
+          font-size: 15pt;
+       }
+    }
+    &:hover li{
+      cursor: pointer;
+     
+    }
+  }
+  blockquote{
+    width: 51rem;
+    height: 18px;
+    padding: 6px;
+    position: absolute;
+    top: 4rem;
+    left: 30rem;
+    background: $color;
+    color: teal;
+    border-radius: 5px 0px 0px 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
 
   #additionalinfo{
-   width: 10rem;
+   width: 13rem;
    height: 25rem;
-   position:absolute;
-   top:20rem;
+   position: relative;;
+   top:-1rem;
    background:$color;
    margin-left: 6px;
-   z-index: 1;
+   z-index: -1;
+   border-radius: 5px;
+   padding: 5px;
+   font-size: small;
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-weight:600;
+  
   }
 
   #formbody{
@@ -51,35 +98,13 @@ app-navbar{
     z-index: 1;
 
    .mat-stepper-horizontal, .mat-stepper-vertical{
-      background :-webkit-linear-gradient(right,#40a551,#0a0a0a);
+      background :$background;
       margin: 0px 0px 0px -71px;
       border-radius: 8px;
       color:white;
       padding-left: 50px
   } 
-   ::ng-deep .mat-form-field.mat-focused .mat-form-field-label{
-      color:white !important;
-      font-size: medium;
-    } 
-   ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
-      background-color: white !important;
-    }
-   ::ng-deep .mat-form-field-ripple{
-      background-color: white !important;
-    }
-   ::ng-deep .mat-input-element{
-      caret-color: white;
-    } 
-   ::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit{
-        background-color: teal;
-    }
-   ::ng-deep .mat-step-header .mat-step-icon-state-edit{
-        background-color: turquoise;
-    }
-    .mat-form-field-infix{
-       width: 350px !important;
-   }
-  
+ 
     
   }
 
@@ -87,5 +112,56 @@ app-navbar{
     clip-path: circle(96% at 0% 0%);
     background: $color_clip;
   }
+   
+  #h2{
+    color: $color;
+    font-size: 30pt;
+    margin-left: 1rem;
+    padding-top: 1rem;
+    position: absolute;
+  }
+  .form-security{
+    width: 85%;
+    height: 28rem;
+    position: relative;
+    top: 7rem; 
+    left: 6rem;
+    background:$background;
+    z-index: 1;
+    padding-top: 1rem;
+    padding-left: 2rem;
+    border-radius: 6px;
+
+    form{
+      width: 30rem;
+      height: 20rem;
+      padding-top: 5px;
+      padding-left: 10px;
+      color: $color;
+    }
+  }
 }
- 
+#h2-s{
+  color:#00070ede;
+    font-size: 26pt;
+    position: absolute;
+    top: 66rem;
+    left: 43rem ;
+    z-index: 1;
+}
+.security{
+  width: 40rem;
+  height: 16rem;
+  background:$background;
+  position: absolute;
+  left: 43rem;
+  top: 71rem;
+  border-radius: 6px;
+  color: $color;
+
+form{
+  padding-left: 2rem;
+  padding-top: 1rem;
+  color: $color;
+}
+}

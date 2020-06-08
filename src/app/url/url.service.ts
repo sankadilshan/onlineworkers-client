@@ -11,10 +11,12 @@ onlineWorkers={
   profileService:{
     heading:"http://localhost:8082",
     body:{
+      health:"http://localhost:8082/health",
       checkUser:"http://localhost:8082/user",
       register:"http://localhost:8082/register",
       login:"http://localhost:8082/login",
       members:"http://localhost:8082/members",
+      updateUser:"http://localhost:8082/",
       postUserInfo:"http://localhost:8082/user-info/",
       picUpload:"http://localhost:8082/user-info/pic/"
     }

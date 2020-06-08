@@ -1,0 +1,33 @@
+$color_clip:#2779b3c7;
+
+*{
+    ::ng-deep .mat-form-field.mat-focused .mat-form-field-label{
+        color:white !important;
+        font-size: medium;
+      } 
+     ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
+        background-color: white !important;
+      }
+     ::ng-deep .mat-form-field-ripple{
+        background-color: white !important;
+      }
+     ::ng-deep .mat-input-element{
+        caret-color: white;
+      } 
+     ::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit{
+          background-color: teal;
+      }
+     ::ng-deep .mat-step-header .mat-step-icon-state-edit{
+          background-color: turquoise;
+      }
+      .mat-form-field-infix{
+         width: 350px !important;
+     }
+    
+}
+
+.s-btn{
+  background: $color_clip;
+  color: white;
+  width: 10rem;
+}

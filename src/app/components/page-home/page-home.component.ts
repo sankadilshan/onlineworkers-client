@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { ScrollToService } from 'ng2-scroll-to-el';
 import { NotifierService } from 'angular-notifier';
 import { SocialService } from 'src/app/service/social.service';
@@ -53,7 +53,8 @@ export class PageHomeComponent implements OnInit {
     private _userInfoService: UserinfoService,
     private _scrollService: ScrollToService,
     private _notifier: NotifierService,
-    private _activatedRoute:ActivatedRoute
+    private _activatedRoute:ActivatedRoute,
+    private _router:Router
   ) { }
 
 ngOnInit() {
@@ -156,9 +157,14 @@ ngOnInit() {
 
   }
   moreDetails(event) {
+    const queryParams:any={}
     console.log(event)
-    // let queryparams={'queryParams':{'pid':event['id'],}}
-    //  this._router.navigate(['profile'])
+    queryParams.postData=JSON.stringify(event)
+    const navigationExtras:NavigationExtras={
+        queryParams,fragment:'more details'
+    }
+  this._router.navigate(['/profile/',this.user],navigationExtras)
+    
   }
 
  liking(i:number){

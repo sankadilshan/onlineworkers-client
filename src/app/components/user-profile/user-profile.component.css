@@ -496,7 +496,7 @@ h4{
     top:278px;
     padding: 1rem 0rem 1rem 4rem;
     z-index: 1;
-    background: -webkit-linear-gradient(right,#2b3e61c7,#0a0a0a);
+    background:-webkit-linear-gradient(right,#ffffff,#197074);
 }
 .h-color{
     color: teal;
@@ -509,10 +509,9 @@ h4{
     background-color: white;
     color: teal; 
     width: 76rem;   
-    padding-top:8px;
     font-size: 13pt;
-    padding-top:20px;
-    padding-bottom: 20px;
+    /* padding-top:20px;*/
+    padding-bottom: 8px; 
     font-size: larger;
 } 
 .mat-expansion-indicator::after, 

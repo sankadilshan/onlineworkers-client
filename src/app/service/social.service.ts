@@ -62,4 +62,7 @@ export class SocialService {
    getJobDetails(){
     return this._http.get('../../assets/mock-data/job-data.json',{responseType:'json'})
   }
+  getTodayNotifiaction(){
+     return this.getJobDetails()
+  }
 }

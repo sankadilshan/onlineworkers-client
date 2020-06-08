@@ -1,8 +1,24 @@
 <app-navbar></app-navbar>
 <div class="body">
   <div id="clip"></div>
-    <h1>Edit your persional information</h1>
-  <div id="additionalinfo"></div>
+    <h1>Make your profile better</h1>
+      <h4>edit additional information &nbsp;| &nbsp;edit common information &nbsp;| &nbsp;
+      change security</h4>
+    <blockquote [hidden]="tips">{{username}}, you are not fill your additional information yet, 
+      Please fill and complete your profile !.</blockquote>
+    <ul>
+      <li (click)="scroll(security)"><mat-icon>build</mat-icon>&nbsp;&nbsp;Security</li>
+      <li>|</li>
+      <li (click)="scroll(profile)"><mat-icon>account_circle</mat-icon>&nbsp;&nbsp;Profile</li>
+    </ul>
+  <div id="additionalinfo">
+    <b>- &nbsp;{{username}}</b><br><br>
+        - &nbsp;{{description | titlecase}}<br><br>
+        - &nbsp;{{address}}<br><br>
+        - &nbsp; {{contactNo}}<br><br>
+        - &nbsp; {{area}}<br><br>
+        - &nbsp; {{email}}<br>
+  </div> 
    <div id="formbody">
      <div>
       <mat-horizontal-stepper linear #hstepper>
@@ -71,13 +87,79 @@
           <p>You are now done.</p>
           <div>
             <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="submitDetails()">Submit</button>
+            <button mat-button (click)="submitUserDetails()">Submit</button>
             <button mat-button (click)="hstepper.reset()">Reset</button>
           </div>
         </mat-step>
       </mat-horizontal-stepper>
     </div>
    </div>
-  
+   <br>
+   <h2 id="h2"> Edit your profile</h2>
+   <div class="form-security" #profile>
+    <form [formGroup]="profileInfoForm" (ngSubmit)="profileInfoForm.valid && onSubmitProfileInfo()" novalidate>
+      <div>
+        <mat-form-field style=" width: 40rem;" appearance="legacy">
+        <mat-label>edit your description</mat-label>
+              <textarea matInput id="description1" formControlName="description" style="width: 643px;"
+                placeholder="" cols="70" rows="6" ></textarea>
+              <mat-hint>make between 100-150 words</mat-hint>
+        </mat-form-field>    
+      </div>
+      <br>
+      <div>
+          <mat-form-field style=" width: 30rem;" appearance="legacy">
+              <mat-label>Email</mat-label>
+              <input id="email" matInput formControlName="email"
+                  placeholder="email">
+          </mat-form-field>
+      </div>
+      <div>
+          <mat-form-field style=" width: 30rem;" appearance="legacy">
+              <mat-label>Contact No.</mat-label>
+              <input  id="contact" matInput formControlName="contactNo"
+                   value="dxfcvgbb">
+              <mat-hint>(valid contact 071-0/077-6/072)</mat-hint>
+          </mat-form-field>
+      </div> 
+      <div>
+        <mat-form-field style=" width: 30rem;" appearance="legacy">
+            <!-- <mat-label>Job area</mat-label> -->
+            <input  id="area" matInput formControlName="area"
+                Value="sdxfc">
+            <mat-hint>(Ex: carpenter, plumber, teller, ...)</mat-hint>
+        </mat-form-field>
+    </div>        
+      <br>
+      <div>
+          <button class="s-btn" mat-button type="submit" mat-raised-button name="change" >save</button>
+      </div>
+  </form>
+  </div>
 </div>
-<app-footer></app-footer>
+<h2 id="h2-s"> Change Username & Password</h2>
+<div class="security" #security>
+   <form [formGroup]="securityForm" (ngSubmit)="onSubmitSecurity()">
+       <div>
+          <mat-form-field style=" width: 20rem;" class="mat-headline" appearance="legacy">
+              <mat-label>Username</mat-label>
+              <input id="name" name="username" matInput formControlName="username"
+                  placeholder="change username">
+          </mat-form-field>
+      </div>
+      <div>
+          <mat-form-field style=" width: 20rem;" appearance="legacy">
+               <mat-label>Password</mat-label>
+              <input id="password" name="password" matInput formControlName="password"
+                  [type]="hide ? 'password':'text'" placeholder="change password">
+              <mat-icon matSuffix (click)="hide = !hide" [attr.aria-label]="'hide password'"
+                  [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-hint>(password with length between 6-16)</mat-hint>
+          </mat-form-field> 
+      </div> 
+      <br>
+      <button class="s-btn" mat-button mat-raised-button type="submit">save</button>
+   </form>
+</div>
+<notifier-container id="notifier"></notifier-container>
+<app-footer></app-footer> 

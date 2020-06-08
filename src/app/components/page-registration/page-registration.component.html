@@ -10,14 +10,14 @@
                     <div>
                         <mat-form-field style=" width: 20rem;" class="mat-headline" appearance="legacy">
                             <mat-label>Username</mat-label>
-                            <input id="name" name="username" matInput formControlName="username" [(ngModel)]="user.username"
+                            <input id="name" name="username" matInput formControlName="username" 
                                 placeholder="username">
                         </mat-form-field>
                     </div>
                     <div>
                         <mat-form-field style=" width: 20rem;" appearance="legacy">
                              <mat-label>Password</mat-label>
-                            <input id="password" name="password" matInput formControlName="password" [(ngModel)]="user.password"
+                            <input id="password" name="password" matInput formControlName="password" 
                                 [type]="hide ? 'password':'text'" placeholder="password">
                             <mat-icon matSuffix (click)="hide = !hide" [attr.aria-label]="'hide password'"
                                 [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -27,14 +27,14 @@
                     <div>
                         <mat-form-field style=" width: 20rem;" appearance="legacy">
                             <mat-label>Email</mat-label>
-                            <input id="email" matInput formControlName="email" [(ngModel)]="user.email"
+                            <input id="email" matInput formControlName="email"
                                 placeholder="email">
                         </mat-form-field>
                     </div>
                     <div>
                         <mat-form-field style=" width: 20rem;" appearance="legacy">
                             <mat-label>Contact No.</mat-label>
-                            <input  id="contact" matInput formControlName="contactNo" [(ngModel)]="user.contactNo"
+                            <input  id="contact" matInput formControlName="contactNo" 
                                 placeholder="contact">
                             <mat-hint>(valid contact 071-0/077-6/072)</mat-hint>
                         </mat-form-field>

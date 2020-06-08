@@ -8,10 +8,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageRegistrationComponent } from './components/page-registration/page-registration.component';
 import { PageLoginComponent } from './components/page-login/page-login.component';
-// import { NotfoundcomponentComponent } from './components/notfoundcomponent/notfoundcomponent.component';
+import { NotfoundcomponentComponent } from './components/notfoundcomponent/notfoundcomponent.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule, MatInputModule, MatIconModule, MatToolbarModule, MatMenuModule, MatBadgeModule, MatTooltipModule, MatSnackBarModule, MatDialogModule, MatStepperModule, MatDatepicker, MatDatepickerModule, MatNativeDateModule, MatSidenavModule, MatSelectModule, MatExpansionModule} from '@angular/material';
+import {MatButtonModule, MatInputModule, MatIconModule, MatToolbarModule, MatMenuModule, MatBadgeModule, MatTooltipModule, MatSnackBarModule, MatDialogModule, MatStepperModule, MatDatepicker, MatDatepickerModule, MatNativeDateModule, MatSidenavModule, MatSelectModule, MatExpansionModule, MatBottomSheetModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatVideoModule} from 'mat-video';
@@ -36,6 +36,9 @@ import { PostShowComponent } from './components/post-show/post-show.component';
 import { SafeHtml } from './custom-pipe/sanitize.pipe';
 import { HttpErrorInterceptor } from './ex-handle/http-error.interceptor';
 import { AdditionalInfoComponent } from './components/additional-info/additional-info.component';
+import { BottomNotificationsComponent } from './components/bottom-notifications/bottom-notifications.component';
+import { httpInterceptorProviders } from './components/interceptor/http-interceptor-provider';
+import { AuthenticationService } from './service/authentication.service';
 
 
 
@@ -86,7 +89,7 @@ animations: {
     AppComponent,
     PageRegistrationComponent,
     PageLoginComponent,
-    // NotfoundcomponentComponent,
+    NotfoundcomponentComponent,
     DashboardComponent,
     PageLoginMiddleComponent,
     PageHomeComponent,
@@ -102,11 +105,12 @@ animations: {
     SearchbarComponent,
     AnimationComponent,
     PostShowComponent,
-    AdditionalInfoComponent
+    AdditionalInfoComponent,
+    BottomNotificationsComponent
 
   ],
   entryComponents:[CommentsComponent,
-    // PageRegistrationComponent
+     PageRegistrationComponent,BottomNotificationsComponent
 ],
   imports: [
     BrowserModule,
@@ -136,10 +140,11 @@ animations: {
     MatNativeDateModule,
     MatSidenavModule,
     MatSelectModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatBottomSheetModule
    // SlideshowModule
   ],
-  providers: [SocialService,UserinfoService,{provide:HTTP_INTERCEPTORS,useClass: HttpErrorInterceptor, multi:true}],
+  providers: [AuthenticationService,SocialService,UserinfoService,httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

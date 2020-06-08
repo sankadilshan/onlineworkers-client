@@ -7,29 +7,31 @@ import 'rxjs/add/operator/catch'
 import { Observable, throwError } from 'rxjs';
 import { Config } from 'protractor';
 import { catchError, retry } from 'rxjs/operators';
+import { AuthenticationService } from './authentication.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserinfoService {
+    
+   private header = { headers: { 'Content-Type': 'application/json' ,'observe':'response','responseType':'json'} }
+  constructor(private _http: HttpClient, private _urlService: UrlService, private _auth:AuthenticationService) { }
 
-  private header = { headers: { 'Content-Type': 'application/json' ,'observe':'response','responseType':'json'} }
-  constructor(private _http: HttpClient, private _urlService: UrlService) { }
-
-  postUserInfo(userInfo: UserInfo, id: any) {
-    const header = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYW5rYSIsImV4cCI6MTU4NTUwODQyMiwidXNlcklkIjoxLCJpYXQiOjE1ODU1MDI0MjJ9.VorQN9HS963G2eMQZ2G7AJH3d47-xBhGG8adstKzRCk'
-      })
-    }
+  postUserInfo(userInfo: UserInfo, id: any):Observable<any>{
+    
     return this._http.post(this._urlService.onlineWorkers.profileService.body.postUserInfo +
-      id, JSON.stringify(userInfo), header);
+      id, JSON.stringify(userInfo), this.header);
+  }
+
+  updateProfileInfo(userInformation:any,userId:any){
+    return this._http.put(this._urlService.onlineWorkers.profileService.body.updateUser+userId,
+    JSON.stringify(userInformation),this.header)
   }
 
   getUserinfo() {
     return this._http.get(this._urlService.onlineWorkers.profileService.heading);
   }
+
   getComments(): Observable<HttpResponse<Array<any>>> {
     return this._http.get<Array<any>>('../../assets/mock-data/job-data.json',
       { observe: 'response', responseType: 'json' })
@@ -38,7 +40,7 @@ export class UserinfoService {
     const options = {
       responseType: 'json' as const,
       observe: 'response' as const,
-      params: { param: username } as const
+      params: { username: username } as const
 
     }
     return this._http.get(this._urlService.onlineWorkers.profileService.body.checkUser, options )
@@ -52,14 +54,17 @@ export class UserinfoService {
       JSON.stringify(fd), multipartHeaders)
   }
 
-  register(user: any) {
+  register(user: any):Observable<any> {
     return this._http.post(this._urlService.onlineWorkers.profileService.body.register,
       JSON.stringify(user), this.header)
   }
 
   login(user: any) {
-    return this._http.post(this._urlService.onlineWorkers.profileService.body.login,
-      JSON.stringify(user), this.header)
+    return this._auth.loginUser(user)
+  }
+
+  logout(){
+    this._auth.logout()
   }
 
 

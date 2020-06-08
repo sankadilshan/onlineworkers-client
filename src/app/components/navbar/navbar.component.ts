@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { SocialService } from 'src/app/service/social.service';
 import { catchError } from 'rxjs/operators';
+import { UserinfoService } from 'src/app/service/userinfo.service';
 
 
 
@@ -32,7 +33,8 @@ export class NavbarComponent implements OnInit {
   expand = false;
 
   constructor(private _router: Router,
-    private _socialService: SocialService) { }
+    private _socialService: SocialService,
+    private _userInfoSErvice:UserinfoService) { }
 
   ngOnInit() {
   }
@@ -72,6 +74,17 @@ export class NavbarComponent implements OnInit {
   }
   clickAcc(){
     console.log("acc")
+  
+    this._router.navigate(["/profile/"+this.user1])
   }
-
+  clickAdditionalInformation(){
+    this._router.navigate(["/info/"+this.user1])
+  }
+  clickCreatePost(){
+    this._router.navigate(["/profile/"+this.user1])
+  }
+   
+  logout(){
+    this._userInfoSErvice.logout()
+  }
 }

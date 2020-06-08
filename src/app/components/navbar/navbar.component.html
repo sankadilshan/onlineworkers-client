@@ -44,21 +44,21 @@
             <mat-card-title style="color: white; position: relative; top: 3px;">{{user1 | titlecase}}</mat-card-title>
         </mat-card-header>
         <mat-card-content id="field-user">
-           <button class="field-user" mat-button><mat-icon class="nav-i" (click)="clickAcc()">account_circle</mat-icon>&nbsp;&nbsp;My Account</button>
-           <button class="field-user" mat-button><mat-icon class="nav-i" (click)="clickAdditionalInformation()">notes</mat-icon>&nbsp;&nbsp;additional information</button>
-           <button class="field-user" mat-button><mat-icon class="nav-i" (click)="clickCreatePost()">add</mat-icon>&nbsp;&nbsp;create post</button>
+           <button class="field-user" mat-button (click)="clickAcc()"><mat-icon class="nav-i" >account_circle</mat-icon>&nbsp;&nbsp;My Account</button>
+           <button class="field-user" mat-button (click)="clickAdditionalInformation()"><mat-icon class="nav-i" >notes</mat-icon>&nbsp;&nbsp;additional information</button>
+           <button class="field-user" mat-button (click)="clickCreatePost()"><mat-icon class="nav-i" >add</mat-icon>&nbsp;&nbsp;create post</button>
             <div id="back-like">
             <span><mat-icon id="user-icon">thumb_up</mat-icon></span>
            <button id="like" mat-button
                 matTooltip="your likes"
                 matTooltipShowDelay="500"
                 matTooltipPosition="above"
-                matTooltipHideDelay="5000"
+                matTooltipHideDelay="5000" 
                 matTooltipClass="mat-tool-tip">{{likes | count}}</button>
            </div>
          </mat-card-content>
         <mat-card-actions align="end">
-            <button id="logout-btn" mat-button>LOGOUT</button>
+            <button id="logout-btn" mat-button (click)="logout()">LOGOUT</button>
         </mat-card-actions>
     </mat-card>
 </mat-menu>
